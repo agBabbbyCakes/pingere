@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation - Ape Design System</title>
+  <link rel="stylesheet" href="assets/ape-design.css">
+</head>
+<body data-theme="cyan">
+  <header>
+    <nav>
+      <a href="index.html" class="brand">APE DESIGN</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Documentation</a>
+        <a href="index.html#themes">Themes</a>
+        <a href="index.html#components">Components</a>
+      </div>
+      <div class="theme-switcher">
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="themeButton">
+            <span id="themeButtonText">Cyan Nexus</span>
+          </button>
+          <div class="theme-dropdown-menu" id="themeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Cyan Nexus</span>
+                <span class="theme-option-desc">Default theme</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="purple">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Purple Matrix</span>
+                <span class="theme-option-desc">Deep purple</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Green Terminal</span>
+                <span class="theme-option-desc">Classic terminal</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="orange">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Orange Fusion</span>
+                <span class="theme-option-desc">Warm orange</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="pink">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Pink Neon</span>
+                <span class="theme-option-desc">Vibrant pink</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Documentation</h1>
+      <p class="hero-text">
+        Complete guide to using the Ape Design System. Learn how to integrate, customize, and build beautiful interfaces.
+      </p>
+    </section>
+
+    <!-- Getting Started -->
+    <section id="getting-started">
+      <div class="container">
+        <h2>Getting Started</h2>
+        <p>Quick start guide to integrate Ape Design System into your project.</p>
+
+        <article>
+          <h3>1. Include the CSS File</h3>
+          <p>Add the Ape Design System CSS file to your HTML:</p>
+          <pre><code>&lt;link rel="stylesheet" href="assets/ape-design.css"&gt;</code></pre>
+          <p>Or use it from a CDN (if hosted):</p>
+          <pre><code>&lt;link rel="stylesheet" href="https://your-domain.com/assets/ape-design.css"&gt;</code></pre>
+        </article>
+
+        <article>
+          <h3>2. Set a Theme</h3>
+          <p>Add a <code>data-theme</code> attribute to your <code>&lt;body&gt;</code> tag:</p>
+          <pre><code>&lt;body data-theme="cyan"&gt;
+  &lt;!-- Your content --&gt;
+&lt;/body&gt;</code></pre>
+          <p>Available themes: <code>cyan</code>, <code>purple</code>, <code>green</code>, <code>orange</code>, <code>pink</code></p>
+        </article>
+
+        <article>
+          <h3>3. Use Semantic HTML</h3>
+          <p>The design system works best with semantic HTML5 elements:</p>
+          <pre><code>&lt;section&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;Section Title&lt;/h2&gt;
+    &lt;article&gt;
+      &lt;h3&gt;Card Title&lt;/h3&gt;
+      &lt;p&gt;Card content&lt;/p&gt;
+      &lt;footer&gt;
+        &lt;button&gt;Action&lt;/button&gt;
+      &lt;/footer&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Theme Switching -->
+    <section id="themes" class="secondary">
+      <div class="container">
+        <h2>Theme Switching</h2>
+        <p>Switch themes dynamically using JavaScript or CSS.</p>
+
+        <article>
+          <h3>JavaScript Method</h3>
+          <p>Change themes programmatically:</p>
+          <pre><code>// Set theme
+document.body.setAttribute('data-theme', 'purple');
+
+// Get current theme
+const currentTheme = document.body.getAttribute('data-theme');</code></pre>
+        </article>
+
+        <article>
+          <h3>Dropdown Theme Switcher</h3>
+          <p>Use the included dropdown theme switcher (see index.html for implementation):</p>
+          <pre><code>&lt;div class="theme-switcher"&gt;
+  &lt;div class="theme-dropdown"&gt;
+    &lt;button class="theme-dropdown-button" id="themeButton"&gt;
+      &lt;span id="themeButtonText"&gt;Cyan Nexus&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="theme-dropdown-menu" id="themeMenu"&gt;
+      &lt;div class="theme-option active" data-theme="cyan"&gt;
+        &lt;div class="theme-option-color"&gt;&lt;/div&gt;
+        &lt;div class="theme-option-label"&gt;
+          &lt;span class="theme-option-name"&gt;Cyan Nexus&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- More theme options --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </article>
+
+        <article>
+          <h3>Available Themes</h3>
+          <div class="grid compact">
+            <article>
+              <h4 class="text-accent">Cyan Nexus</h4>
+              <p><code>data-theme="cyan"</code></p>
+            </article>
+            <article>
+              <h4 style="color: #a855f7;">Purple Matrix</h4>
+              <p><code>data-theme="purple"</code></p>
+            </article>
+            <article>
+              <h4 style="color: #00ff88;">Green Terminal</h4>
+              <p><code>data-theme="green"</code></p>
+            </article>
+            <article>
+              <h4 style="color: #ff6b35;">Orange Fusion</h4>
+              <p><code>data-theme="orange"</code></p>
+            </article>
+            <article>
+              <h4 style="color: #ff00ff;">Pink Neon</h4>
+              <p><code>data-theme="pink"</code></p>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CSS Variables -->
+    <section id="variables">
+      <div class="container">
+        <h2>CSS Variables</h2>
+        <p>All aspects of the design system can be customized using CSS variables.</p>
+
+        <article>
+          <h3>Color Variables</h3>
+          <pre><code>:root {
+  /* Background Colors */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0f;
+  --bg-tertiary: #151520;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+  
+  /* Accent Colors */
+  --accent-primary: #00ffff;
+  --accent-secondary: #00ff88;
+  --accent-tertiary: #ff00ff;
+  --accent-glow: rgba(0, 255, 255, 0.5);
+}</code></pre>
+        </article>
+
+        <article>
+          <h3>Glass Effect Variables</h3>
+          <pre><code>:root {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-hover: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-accent: rgba(0, 255, 255, 0.3);
+  --glass-blur: blur(20px);
+  --glass-blur-strong: blur(40px);
+}</code></pre>
+        </article>
+
+        <article>
+          <h3>Spacing Variables</h3>
+          <pre><code>:root {
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 6rem;
+}</code></pre>
+        </article>
+
+        <article>
+          <h3>Typography Variables</h3>
+          <pre><code>:root {
+  --font-family: 'SF Mono', 'Monaco', monospace;
+  --font-family-body: system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3.5rem;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Components -->
+    <section id="components" class="secondary">
+      <div class="container">
+        <h2>Components</h2>
+        <p>Built-in components with glass morphism effects.</p>
+
+        <article>
+          <h3>Glass Cards (Articles)</h3>
+          <p>Use <code>&lt;article&gt;</code> for glass cards:</p>
+          <pre><code>&lt;article&gt;
+  &lt;h3&gt;Card Title&lt;/h3&gt;
+  &lt;p&gt;Card content goes here.&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;button&gt;Action&lt;/button&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+          <p>Cards automatically have glass effects, hover animations, and footer positioning.</p>
+        </article>
+
+        <article>
+          <h3>Buttons</h3>
+          <p>Three button styles available:</p>
+          <div class="btn-group">
+            <button>Primary Button</button>
+            <button class="outline">Outline Button</button>
+            <button class="full">Full Width Button</button>
+          </div>
+          <pre><code>&lt;button&gt;Primary Button&lt;/button&gt;
+&lt;button class="outline"&gt;Outline Button&lt;/button&gt;
+&lt;button class="full"&gt;Full Width Button&lt;/button&gt;
+
+&lt;!-- Or use anchor tags --&gt;
+&lt;a href="#" role="button"&gt;Link Button&lt;/a&gt;</code></pre>
+        </article>
+
+        <article>
+          <h3>Grid Layouts</h3>
+          <p>Responsive grid system:</p>
+          <pre><code>&lt;div class="grid"&gt;
+  &lt;article&gt;Card 1&lt;/article&gt;
+  &lt;article&gt;Card 2&lt;/article&gt;
+  &lt;article&gt;Card 3&lt;/article&gt;
+&lt;/div&gt;
+
+&lt;!-- Compact grid for smaller items --&gt;
+&lt;div class="grid compact"&gt;
+  &lt;article&gt;Item 1&lt;/article&gt;
+  &lt;article&gt;Item 2&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+        </article>
+
+        <article>
+          <h3>Sections</h3>
+          <p>Use <code>&lt;section&gt;</code> for content blocks:</p>
+          <pre><code>&lt;section&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;Section Title&lt;/h2&gt;
+    &lt;p&gt;Section content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Secondary section with dark background --&gt;
+&lt;section class="secondary"&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;Secondary Section&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Utility Classes -->
+    <section id="utilities">
+      <div class="container">
+        <h2>Utility Classes</h2>
+        <p>Quick utility classes for common styling needs.</p>
+
+        <div class="grid">
+          <article>
+            <h3>Spacing</h3>
+            <pre><code>.p-sm, .p-md, .p-lg, .p-xl, .p-2xl
+.m-sm, .m-md, .m-lg, .m-xl, .m-2xl
+.gap-sm, .gap-md, .gap-lg, .gap-xl</code></pre>
+          </article>
+
+          <article>
+            <h3>Display</h3>
+            <pre><code>.flex, .grid, .block, .inline
+.flex-col, .flex-row
+.items-center, .justify-between
+.flex-wrap, .flex-1</code></pre>
+          </article>
+
+          <article>
+            <h3>Text</h3>
+            <pre><code>.text-center, .text-left, .text-right
+.text-accent, .text-muted
+.text-sm, .text-md, .text-lg
+.font-bold, .font-normal</code></pre>
+          </article>
+
+          <article>
+            <h3>Width</h3>
+            <pre><code>.w-full, .w-auto
+.max-w-sm, .max-w-md
+.max-w-lg, .max-w-xl</code></pre>
+          </article>
+
+          <article>
+            <h3>Borders</h3>
+            <pre><code>.border, .border-accent
+.border-t, .border-b
+.rounded, .rounded-sm, .rounded-lg</code></pre>
+          </article>
+
+          <article>
+            <h3>Background</h3>
+            <pre><code>.bg-secondary
+.bg-card</code></pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customization -->
+    <section id="customization" class="secondary">
+      <div class="container">
+        <h2>Customization</h2>
+        <p>Create your own theme or customize existing ones.</p>
+
+        <article>
+          <h3>Creating a Custom Theme</h3>
+          <p>Add a new theme by creating a new <code>data-theme</code> selector:</p>
+          <pre><code>[data-theme="custom"] {
+  --accent-primary: #ff0000;
+  --accent-secondary: #ff3333;
+  --accent-tertiary: #cc0000;
+  --accent-glow: rgba(255, 0, 0, 0.6);
+  --glass-border-accent: rgba(255, 0, 0, 0.4);
+}</code></pre>
+          <p>Then use it: <code>&lt;body data-theme="custom"&gt;</code></p>
+        </article>
+
+        <article>
+          <h3>Overriding Variables</h3>
+          <p>Override any variable in your own CSS:</p>
+          <pre><code>:root {
+  --accent-primary: #your-color;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --border-radius: 16px;
+  /* Override any variable */</code></pre>
+        </article>
+
+        <article>
+          <h3>Disabling CRT Effects</h3>
+          <p>To remove the scanline effect, override the body::before pseudo-element:</p>
+          <pre><code>body::before {
+  display: none;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Examples -->
+    <section id="examples">
+      <div class="container">
+        <h2>Examples</h2>
+        <p>Real-world examples and code snippets.</p>
+
+        <article>
+          <h3>Complete Page Structure</h3>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My App&lt;/title&gt;
+  &lt;link rel="stylesheet" href="assets/ape-design.css"&gt;
+&lt;/head&gt;
+&lt;body data-theme="cyan"&gt;
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;a href="#" class="brand"&gt;My App&lt;/a&gt;
+      &lt;div class="links"&gt;
+        &lt;a href="#home"&gt;Home&lt;/a&gt;
+        &lt;a href="#about"&gt;About&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section class="hero"&gt;
+      &lt;h1&gt;Welcome&lt;/h1&gt;
+      &lt;p class="hero-text"&gt;Hero content&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;div class="container"&gt;
+        &lt;h2&gt;Features&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+          &lt;article&gt;
+            &lt;h3&gt;Feature 1&lt;/h3&gt;
+            &lt;p&gt;Description&lt;/p&gt;
+          &lt;/article&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </article>
+
+        <article>
+          <h3>Button Group</h3>
+          <div class="btn-group">
+            <button>Primary</button>
+            <button class="outline">Secondary</button>
+          </div>
+          <pre><code>&lt;div class="btn-group"&gt;
+  &lt;button&gt;Primary&lt;/button&gt;
+  &lt;button class="outline"&gt;Secondary&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="grid">
+      <div>
+        <h3>ApeWorX</h3>
+        <p>Futuristic design systems for modern web applications.</p>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="index.html">Examples</a></li>
+          <li><a href="UTILITIES.md">Utility Reference</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="docs.html#getting-started">Getting Started</a></li>
+          <li><a href="docs.html#themes">Themes</a></li>
+          <li><a href="docs.html#components">Components</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; 2024 ApeWorX. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Switcher Dropdown
+    const themeButton = document.getElementById('themeButton');
+    const themeMenu = document.getElementById('themeMenu');
+    const themeButtonText = document.getElementById('themeButtonText');
+    
+    const themeNames = {
+      cyan: 'Cyan Nexus',
+      purple: 'Purple Matrix',
+      green: 'Green Terminal',
+      orange: 'Orange Fusion',
+      pink: 'Pink Neon'
+    };
+    
+    // Toggle dropdown
+    themeButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themeMenu.classList.toggle('open');
+      themeButton.classList.toggle('open');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!themeButton.contains(e.target) && !themeMenu.contains(e.target)) {
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+      }
+    });
+    
+    // Theme selection
+    document.querySelectorAll('.theme-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const theme = option.getAttribute('data-theme');
+        document.body.setAttribute('data-theme', theme);
+        
+        // Update button text
+        themeButtonText.textContent = themeNames[theme];
+        
+        // Update active state
+        document.querySelectorAll('.theme-option').forEach(opt => {
+          opt.classList.remove('active');
+        });
+        option.classList.add('active');
+        
+        // Close dropdown
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+        
+        // Save to localStorage
+        localStorage.setItem('ape-theme', theme);
+      });
+    });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('ape-theme');
+    if (savedTheme) {
+      document.body.setAttribute('data-theme', savedTheme);
+      themeButtonText.textContent = themeNames[savedTheme];
+      document.querySelector(`.theme-option[data-theme="${savedTheme}"]`)?.classList.add('active');
+      document.querySelectorAll('.theme-option').forEach(opt => {
+        if (opt.getAttribute('data-theme') !== savedTheme) {
+          opt.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+

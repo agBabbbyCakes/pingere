@@ -15,14 +15,51 @@
         <a href="#themes">Themes</a>
         <a href="#components">Components</a>
         <a href="#utilities">Utilities</a>
-        <a href="#team">Team</a>
+        <a href="docs.html">Documentation</a>
       </div>
       <div class="theme-switcher">
-        <div class="theme-option active" data-theme="cyan" title="Cyan Nexus"></div>
-        <div class="theme-option" data-theme="purple" title="Purple Matrix"></div>
-        <div class="theme-option" data-theme="green" title="Green Terminal"></div>
-        <div class="theme-option" data-theme="orange" title="Orange Fusion"></div>
-        <div class="theme-option" data-theme="pink" title="Pink Neon"></div>
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="themeButton">
+            <span id="themeButtonText">Cyan Nexus</span>
+          </button>
+          <div class="theme-dropdown-menu" id="themeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Cyan Nexus</span>
+                <span class="theme-option-desc">Default theme</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="purple">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Purple Matrix</span>
+                <span class="theme-option-desc">Deep purple</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Green Terminal</span>
+                <span class="theme-option-desc">Classic terminal</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="orange">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Orange Fusion</span>
+                <span class="theme-option-desc">Warm orange</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="pink">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Pink Neon</span>
+                <span class="theme-option-desc">Vibrant pink</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -36,8 +73,8 @@
         Fully customizable with extensive CSS variables.
       </p>
       <div class="btn-group">
-        <button>Get Started</button>
-        <button class="outline">View Docs</button>
+        <a href="docs.html" role="button">Get Started</a>
+        <a href="docs.html" role="button" class="outline">View Docs</a>
       </div>
     </section>
 
@@ -372,19 +409,70 @@
   </footer>
 
   <script>
-    // Theme Switcher
+    // Theme Switcher Dropdown
+    const themeButton = document.getElementById('themeButton');
+    const themeMenu = document.getElementById('themeMenu');
+    const themeButtonText = document.getElementById('themeButtonText');
+    
+    const themeNames = {
+      cyan: 'Cyan Nexus',
+      purple: 'Purple Matrix',
+      green: 'Green Terminal',
+      orange: 'Orange Fusion',
+      pink: 'Pink Neon'
+    };
+    
+    // Toggle dropdown
+    themeButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themeMenu.classList.toggle('open');
+      themeButton.classList.toggle('open');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!themeButton.contains(e.target) && !themeMenu.contains(e.target)) {
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+      }
+    });
+    
+    // Theme selection
     document.querySelectorAll('.theme-option').forEach(option => {
       option.addEventListener('click', () => {
         const theme = option.getAttribute('data-theme');
         document.body.setAttribute('data-theme', theme);
+        
+        // Update button text
+        themeButtonText.textContent = themeNames[theme];
         
         // Update active state
         document.querySelectorAll('.theme-option').forEach(opt => {
           opt.classList.remove('active');
         });
         option.classList.add('active');
+        
+        // Close dropdown
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+        
+        // Save to localStorage
+        localStorage.setItem('ape-theme', theme);
       });
     });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('ape-theme');
+    if (savedTheme) {
+      document.body.setAttribute('data-theme', savedTheme);
+      themeButtonText.textContent = themeNames[savedTheme];
+      document.querySelector(`.theme-option[data-theme="${savedTheme}"]`)?.classList.add('active');
+      document.querySelectorAll('.theme-option').forEach(opt => {
+        if (opt.getAttribute('data-theme') !== savedTheme) {
+          opt.classList.remove('active');
+        }
+      });
+    }
   </script>
 </body>
 </html>
