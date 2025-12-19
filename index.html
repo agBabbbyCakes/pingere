@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApeWorX - Minimal Elemental Design System Demo</title>
+  <link rel="stylesheet" href="assets/minimal.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" class="brand">ApeWorX</a>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#components">Components</a>
+        <a href="#utilities">Utilities</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Minimal Elemental Design</h1>
+      <p class="hero-text">
+        A clean, modern design system built with semantic HTML and minimal CSS. 
+        No frameworks, no bloat—just beautiful, functional components.
+      </p>
+      <div class="btn-group">
+        <button>Get Started</button>
+        <button class="outline">Learn More</button>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features">
+      <div class="container">
+        <h2>Core Features</h2>
+        <p>Everything you need to build beautiful, responsive websites with minimal code.</p>
+        
+        <div class="grid">
+          <article>
+            <h3>Semantic HTML</h3>
+            <p>Built with native HTML5 elements. Use <code>&lt;section&gt;</code> for blocks, <code>&lt;article&gt;</code> for cards, and <code>&lt;nav&gt;</code> for navigation.</p>
+            <footer>
+              <button>Explore</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Minimal CSS</h3>
+            <p>Just 343 lines of CSS. No external dependencies, no framework overhead. Pure, performant styling.</p>
+            <footer>
+              <button>View Source</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Dark Theme</h3>
+            <p>Beautiful dark theme with cyan accents. Perfect for modern web applications and developer tools.</p>
+            <footer>
+              <button>Customize</button>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components Showcase -->
+    <section id="components" class="secondary">
+      <div class="container">
+        <h2>Component Showcase</h2>
+        <p>See all the components in action with real examples.</p>
+
+        <div class="grid">
+          <article>
+            <h3>Primary Button</h3>
+            <p>Standard button with cyan accent glow on hover.</p>
+            <footer>
+              <button>Click Me</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Outline Button</h3>
+            <p>Secondary action button with transparent background.</p>
+            <footer>
+              <button class="outline">Learn More</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Full Width Button</h3>
+            <p>Button that spans the full width of its container.</p>
+            <footer>
+              <button class="full">Full Width Action</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Link Button</h3>
+            <p>Anchor tag styled as a button using <code>role="button"</code>.</p>
+            <footer>
+              <a href="#" role="button">Link Button</a>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Card with Footer</h3>
+            <p>Articles automatically position footers at the bottom using flexbox.</p>
+            <small>This is a small text element</small>
+            <footer>
+              <button>Action</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Hover Effects</h3>
+            <p>Cards have subtle border color transitions on hover. Try hovering over any card!</p>
+            <footer>
+              <button class="outline">Hover Me</button>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Utilities Showcase -->
+    <section id="utilities">
+      <div class="container">
+        <h2>Utility Classes</h2>
+        <p>Human-readable, easy-to-remember utility classes for rapid development.</p>
+
+        <div class="grid">
+          <article>
+            <h3>Spacing</h3>
+            <p class="text-muted">Use <code>.p-*</code> for padding, <code>.m-*</code> for margin:</p>
+            <div class="p-md bg-secondary rounded m-md">
+              <code>.p-md .m-md</code>
+            </div>
+            <footer>
+              <button class="outline text-sm">View Docs</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Flexbox</h3>
+            <p class="text-muted">Quick flex layouts with <code>.flex</code>, <code>.items-center</code>, <code>.justify-between</code>:</p>
+            <div class="flex items-center justify-between p-md bg-secondary rounded">
+              <span>Left</span>
+              <span>Right</span>
+            </div>
+            <footer>
+              <button class="outline text-sm">View Docs</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Text Utilities</h3>
+            <p class="text-muted">Text colors, sizes, and alignment:</p>
+            <div class="p-md bg-secondary rounded">
+              <p class="text-accent m-0">.text-accent</p>
+              <p class="text-muted m-0 text-sm">.text-muted .text-sm</p>
+            </div>
+            <footer>
+              <button class="outline text-sm">View Docs</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Width & Container</h3>
+            <p class="text-muted">Control width with <code>.w-full</code>, <code>.max-w-lg</code>:</p>
+            <div class="p-md bg-secondary rounded">
+              <div class="w-full bg-card p-sm rounded text-sm">Full width</div>
+            </div>
+            <footer>
+              <button class="outline text-sm">View Docs</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Borders</h3>
+            <p class="text-muted">Add borders with <code>.border</code>, <code>.border-accent</code>, <code>.rounded</code>:</p>
+            <div class="p-md">
+              <div class="border rounded p-md m-0">Standard border</div>
+              <div class="border-accent rounded p-md m-0 mt-md">Accent border</div>
+            </div>
+            <footer>
+              <button class="outline text-sm">View Docs</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Display</h3>
+            <p class="text-muted">Control display with <code>.flex</code>, <code>.grid</code>, <code>.hidden</code>:</p>
+            <div class="flex gap-md p-md bg-secondary rounded">
+              <div class="flex-1 bg-card p-sm rounded text-center text-sm">Flex 1</div>
+              <div class="flex-1 bg-card p-sm rounded text-center text-sm">Flex 1</div>
+            </div>
+            <footer>
+              <button class="outline text-sm">View Docs</button>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compact Grid -->
+    <section id="team" class="secondary">
+      <div class="container">
+        <h2>Team</h2>
+        <p>Meet the people behind the design system.</p>
+
+        <div class="grid compact">
+          <article>
+            <h4>Alex</h4>
+            <p>Design Lead</p>
+            <footer>
+              <a href="#" role="button" class="outline">Contact</a>
+            </footer>
+          </article>
+
+          <article>
+            <h4>Sam</h4>
+            <p>Developer</p>
+            <footer>
+              <a href="#" role="button" class="outline">Contact</a>
+            </footer>
+          </article>
+
+          <article>
+            <h4>Jordan</h4>
+            <p>UX Designer</p>
+            <footer>
+              <a href="#" role="button" class="outline">Contact</a>
+            </footer>
+          </article>
+
+          <article>
+            <h4>Taylor</h4>
+            <p>Product Manager</p>
+            <footer>
+              <a href="#" role="button" class="outline">Contact</a>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="secondary">
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Start building beautiful websites with the Minimal Elemental design system today.</p>
+        <footer>
+          <div class="btn-group">
+            <button>Download CSS</button>
+            <button class="outline">View Documentation</button>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="grid">
+      <div>
+        <h3>ApeWorX</h3>
+        <p>Building beautiful, minimal design systems for modern web applications.</p>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Community</h3>
+        <ul>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; 2024 ApeWorX. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
