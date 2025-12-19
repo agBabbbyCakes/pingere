@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApeWorX - Minimal Elemental Design System Demo</title>
-  <link rel="stylesheet" href="assets/minimal.css">
+  <title>ApeWorX - Ape Design System</title>
+  <link rel="stylesheet" href="assets/ape-design.css">
 </head>
-<body>
+<body data-theme="cyan">
   <header>
     <nav>
-      <a href="#" class="brand">ApeWorX</a>
+      <a href="#" class="brand">APE DESIGN</a>
       <div class="links">
         <a href="#features">Features</a>
+        <a href="#themes">Themes</a>
         <a href="#components">Components</a>
         <a href="#utilities">Utilities</a>
         <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
+      </div>
+      <div class="theme-switcher">
+        <div class="theme-option active" data-theme="cyan" title="Cyan Nexus"></div>
+        <div class="theme-option" data-theme="purple" title="Purple Matrix"></div>
+        <div class="theme-option" data-theme="green" title="Green Terminal"></div>
+        <div class="theme-option" data-theme="orange" title="Orange Fusion"></div>
+        <div class="theme-option" data-theme="pink" title="Pink Neon"></div>
       </div>
     </nav>
   </header>
@@ -23,14 +30,14 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <h1>Minimal Elemental Design</h1>
+      <h1>APE DESIGN SYSTEM</h1>
       <p class="hero-text">
-        A clean, modern design system built with semantic HTML and minimal CSS. 
-        No frameworks, no bloat—just beautiful, functional components.
+        Futuristic dark glass themes with neon accents. Space-age aesthetics meets CRT nostalgia. 
+        Fully customizable with extensive CSS variables.
       </p>
       <div class="btn-group">
         <button>Get Started</button>
-        <button class="outline">Learn More</button>
+        <button class="outline">View Docs</button>
       </div>
     </section>
 
@@ -38,30 +45,94 @@
     <section id="features">
       <div class="container">
         <h2>Core Features</h2>
-        <p>Everything you need to build beautiful, responsive websites with minimal code.</p>
+        <p>Everything you need to build futuristic, glass-morphism interfaces with neon accents.</p>
         
         <div class="grid">
           <article>
-            <h3>Semantic HTML</h3>
-            <p>Built with native HTML5 elements. Use <code>&lt;section&gt;</code> for blocks, <code>&lt;article&gt;</code> for cards, and <code>&lt;nav&gt;</code> for navigation.</p>
+            <h3>5 Dark Themes</h3>
+            <p>Five distinct dark themes with glass effects and vibrant neon accents. Switch themes instantly with data attributes.</p>
             <footer>
-              <button>Explore</button>
+              <button>Explore Themes</button>
             </footer>
           </article>
 
           <article>
-            <h3>Minimal CSS</h3>
-            <p>Just 343 lines of CSS. No external dependencies, no framework overhead. Pure, performant styling.</p>
+            <h3>Glass Morphism</h3>
+            <p>Beautiful frosted glass effects with backdrop blur. Cards and panels have that space-age glass aesthetic.</p>
             <footer>
-              <button>View Source</button>
+              <button>View Examples</button>
             </footer>
           </article>
 
           <article>
-            <h3>Dark Theme</h3>
-            <p>Beautiful dark theme with cyan accents. Perfect for modern web applications and developer tools.</p>
+            <h3>CRT Effects</h3>
+            <p>Subtle scanline effects and glows that evoke retro CRT monitors. Perfect for that futuristic retro vibe.</p>
             <footer>
-              <button>Customize</button>
+              <button>See Details</button>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Themes Showcase -->
+    <section id="themes" class="secondary">
+      <div class="container">
+        <h2>5 Distinct Themes</h2>
+        <p>Switch between themes using the theme switcher in the header. Each theme has unique neon accents.</p>
+
+        <div class="grid">
+          <article>
+            <h3 class="text-accent">Cyan Nexus</h3>
+            <p>Default theme with vibrant cyan accents. Perfect for tech and developer tools.</p>
+            <small>Use: <code>data-theme="cyan"</code></small>
+            <footer>
+              <button>Select Theme</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3 style="color: #a855f7;">Purple Matrix</h3>
+            <p>Deep purple with magenta highlights. Matrix-inspired with a modern twist.</p>
+            <small>Use: <code>data-theme="purple"</code></small>
+            <footer>
+              <button class="outline">Select Theme</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3 style="color: #00ff88;">Green Terminal</h3>
+            <p>Classic terminal green with lime accents. Nostalgic yet futuristic.</p>
+            <small>Use: <code>data-theme="green"</code></small>
+            <footer>
+              <button class="outline">Select Theme</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3 style="color: #ff6b35;">Orange Fusion</h3>
+            <p>Warm orange with amber glow. Energy and warmth in a dark interface.</p>
+            <small>Use: <code>data-theme="orange"</code></small>
+            <footer>
+              <button class="outline">Select Theme</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3 style="color: #ff00ff;">Pink Neon</h3>
+            <p>Vibrant pink with magenta pulse. Bold and energetic.</p>
+            <small>Use: <code>data-theme="pink"</code></small>
+            <footer>
+              <button class="outline">Select Theme</button>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Customizable</h3>
+            <p>All themes use CSS variables. Edit root variables to create your own theme variations.</p>
+            <small>See <code>ape-design.css</code> for variables</small>
+            <footer>
+              <button class="outline">View Variables</button>
             </footer>
           </article>
         </div>
@@ -69,15 +140,15 @@
     </section>
 
     <!-- Components Showcase -->
-    <section id="components" class="secondary">
+    <section id="components">
       <div class="container">
         <h2>Component Showcase</h2>
-        <p>See all the components in action with real examples.</p>
+        <p>See all the glass-morphism components in action with neon glow effects.</p>
 
         <div class="grid">
           <article>
             <h3>Primary Button</h3>
-            <p>Standard button with cyan accent glow on hover.</p>
+            <p>Glass button with neon border glow on hover. Includes shimmer effect.</p>
             <footer>
               <button>Click Me</button>
             </footer>
@@ -85,7 +156,7 @@
 
           <article>
             <h3>Outline Button</h3>
-            <p>Secondary action button with transparent background.</p>
+            <p>Transparent button with subtle border. Perfect for secondary actions.</p>
             <footer>
               <button class="outline">Learn More</button>
             </footer>
@@ -108,9 +179,9 @@
           </article>
 
           <article>
-            <h3>Card with Footer</h3>
-            <p>Articles automatically position footers at the bottom using flexbox.</p>
-            <small>This is a small text element</small>
+            <h3>Glass Cards</h3>
+            <p>Cards with frosted glass effect, backdrop blur, and neon border glow on hover.</p>
+            <small>Hover to see the effect</small>
             <footer>
               <button>Action</button>
             </footer>
@@ -118,7 +189,7 @@
 
           <article>
             <h3>Hover Effects</h3>
-            <p>Cards have subtle border color transitions on hover. Try hovering over any card!</p>
+            <p>Cards lift and glow on hover. Try hovering over any card to see the glass morphism in action!</p>
             <footer>
               <button class="outline">Hover Me</button>
             </footer>
@@ -128,7 +199,7 @@
     </section>
 
     <!-- Utilities Showcase -->
-    <section id="utilities">
+    <section id="utilities" class="secondary">
       <div class="container">
         <h2>Utility Classes</h2>
         <p>Human-readable, easy-to-remember utility classes for rapid development.</p>
@@ -208,10 +279,10 @@
     </section>
 
     <!-- Compact Grid -->
-    <section id="team" class="secondary">
+    <section id="team">
       <div class="container">
         <h2>Team</h2>
-        <p>Meet the people behind the design system.</p>
+        <p>Meet the people behind the Ape Design System.</p>
 
         <div class="grid compact">
           <article>
@@ -250,10 +321,10 @@
     </section>
 
     <!-- Call to Action -->
-    <section id="contact" class="secondary">
+    <section class="secondary">
       <div class="container">
         <h2>Ready to Get Started?</h2>
-        <p>Start building beautiful websites with the Minimal Elemental design system today.</p>
+        <p>Start building futuristic interfaces with the Ape Design System today.</p>
         <footer>
           <div class="btn-group">
             <button>Download CSS</button>
@@ -268,7 +339,7 @@
     <div class="grid">
       <div>
         <h3>ApeWorX</h3>
-        <p>Building beautiful, minimal design systems for modern web applications.</p>
+        <p>Building futuristic design systems for modern web applications.</p>
       </div>
       <div>
         <h3>Resources</h3>
@@ -299,5 +370,21 @@
       <p>&copy; 2024 ApeWorX. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Theme Switcher
+    document.querySelectorAll('.theme-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const theme = option.getAttribute('data-theme');
+        document.body.setAttribute('data-theme', theme);
+        
+        // Update active state
+        document.querySelectorAll('.theme-option').forEach(opt => {
+          opt.classList.remove('active');
+        });
+        option.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
