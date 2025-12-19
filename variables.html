@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Variables Reference - Ape Design System</title>
+  <link rel="stylesheet" href="assets/ape-design.css">
+</head>
+<body data-theme="cyan">
+  <header>
+    <nav>
+      <a href="index.html" class="brand">APE DESIGN</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Documentation</a>
+        <a href="variables.html">Variables</a>
+        <a href="index.html#themes">Themes</a>
+      </div>
+      <div class="theme-switcher">
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="themeButton">
+            <span id="themeButtonText">Cyan Nexus</span>
+          </button>
+          <div class="theme-dropdown-menu" id="themeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Cyan Nexus</span>
+                <span class="theme-option-desc">Default theme</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="purple">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Purple Matrix</span>
+                <span class="theme-option-desc">Deep purple</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Green Terminal</span>
+                <span class="theme-option-desc">Classic terminal</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="orange">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Orange Fusion</span>
+                <span class="theme-option-desc">Warm orange</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="pink">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Pink Neon</span>
+                <span class="theme-option-desc">Vibrant pink</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>CSS Variables Reference</h1>
+      <p class="hero-text">
+        Complete reference for all CSS variables in the Ape Design System. Customize every aspect of the design by overriding these variables.
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <section id="toc">
+      <div class="container">
+        <h2>Table of Contents</h2>
+        <div class="grid">
+          <article>
+            <h3><a href="#colors">Color Variables</a></h3>
+            <p>Background, text, and accent colors</p>
+          </article>
+          <article>
+            <h3><a href="#glass">Glass Effect Variables</a></h3>
+            <p>Glass morphism and backdrop blur</p>
+          </article>
+          <article>
+            <h3><a href="#borders">Border Variables</a></h3>
+            <p>Border styles, widths, and radius</p>
+          </article>
+          <article>
+            <h3><a href="#shadows">Shadow & Glow Variables</a></h3>
+            <p>Shadows, glows, and lighting effects</p>
+          </article>
+          <article>
+            <h3><a href="#typography">Typography Variables</a></h3>
+            <p>Fonts, sizes, weights, and spacing</p>
+          </article>
+          <article>
+            <h3><a href="#spacing">Spacing Variables</a></h3>
+            <p>Padding, margin, and gap values</p>
+          </article>
+          <article>
+            <h3><a href="#layout">Layout Variables</a></h3>
+            <p>Container widths and padding</p>
+          </article>
+          <article>
+            <h3><a href="#transitions">Transition Variables</a></h3>
+            <p>Animation timing and easing</p>
+          </article>
+          <article>
+            <h3><a href="#crt">CRT Effect Variables</a></h3>
+            <p>Retro scanline effects</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Color Variables -->
+    <section id="colors" class="secondary">
+      <div class="container">
+        <h2>Color Variables</h2>
+        <p>Control all colors in the design system. Background colors, text colors, and accent colors can all be customized.</p>
+
+        <article>
+          <h3>Background Colors</h3>
+          <p>Primary background colors for the page and components.</p>
+          
+          <h4><code>--bg-primary</code></h4>
+          <p><strong>Default:</strong> <code>#000000</code></p>
+          <p><strong>Usage:</strong> Main page background color. This is the darkest background layer.</p>
+          <div class="p-md bg-secondary rounded m-md" style="background: var(--bg-primary); border: 1px solid var(--glass-border);">
+            <code>background: var(--bg-primary);</code>
+          </div>
+          <pre><code>/* Override example */
+:root {
+  --bg-primary: #0a0a0a; /* Slightly lighter black */
+}</code></pre>
+
+          <h4><code>--bg-secondary</code></h4>
+          <p><strong>Default:</strong> <code>#0a0a0f</code></p>
+          <p><strong>Usage:</strong> Secondary background for sections and panels. Slightly lighter than primary.</p>
+          <div class="p-md rounded m-md" style="background: var(--bg-secondary); border: 1px solid var(--glass-border);">
+            <code>background: var(--bg-secondary);</code>
+          </div>
+
+          <h4><code>--bg-tertiary</code></h4>
+          <p><strong>Default:</strong> <code>#151520</code></p>
+          <p><strong>Usage:</strong> Tertiary background for nested components or elevated surfaces.</p>
+          <div class="p-md rounded m-md" style="background: var(--bg-tertiary); border: 1px solid var(--glass-border);">
+            <code>background: var(--bg-tertiary);</code>
+          </div>
+        </article>
+
+        <article>
+          <h3>Text Colors</h3>
+          <p>Hierarchy of text colors for different content levels.</p>
+
+          <h4><code>--text-primary</code></h4>
+          <p><strong>Default:</strong> <code>#ffffff</code></p>
+          <p><strong>Usage:</strong> Primary text color for headings and important content. Highest contrast.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="color: var(--text-primary); margin: 0;"><code>color: var(--text-primary);</code> - This is primary text</p>
+          </div>
+
+          <h4><code>--text-secondary</code></h4>
+          <p><strong>Default:</strong> <code>#e5e7eb</code></p>
+          <p><strong>Usage:</strong> Secondary text for body content and paragraphs. Good readability.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="color: var(--text-secondary); margin: 0;"><code>color: var(--text-secondary);</code> - This is secondary text</p>
+          </div>
+
+          <h4><code>--text-muted</code></h4>
+          <p><strong>Default:</strong> <code>#9ca3af</code></p>
+          <p><strong>Usage:</strong> Muted text for less important information, captions, and metadata.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="color: var(--text-muted); margin: 0;"><code>color: var(--text-muted);</code> - This is muted text</p>
+          </div>
+
+          <h4><code>--text-dim</code></h4>
+          <p><strong>Default:</strong> <code>#6b7280</code></p>
+          <p><strong>Usage:</strong> Dim text for disabled states or very low-priority content.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="color: var(--text-dim); margin: 0;"><code>color: var(--text-dim);</code> - This is dim text</p>
+          </div>
+        </article>
+
+        <article>
+          <h3>Accent Colors</h3>
+          <p>Theme-specific accent colors that change based on the selected theme.</p>
+
+          <h4><code>--accent-primary</code></h4>
+          <p><strong>Default (Cyan):</strong> <code>#00ffff</code></p>
+          <p><strong>Usage:</strong> Primary accent color for links, buttons, highlights, and interactive elements. This is the main theme color.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="color: var(--accent-primary); margin: 0;"><code>color: var(--accent-primary);</code> - Accent text</p>
+            <button style="margin-top: 0.5rem;">Button with accent</button>
+          </div>
+          <pre><code>/* Theme-specific overrides */
+[data-theme="purple"] {
+  --accent-primary: #a855f7;
+}
+
+[data-theme="green"] {
+  --accent-primary: #00ff88;
+}</code></pre>
+
+          <h4><code>--accent-secondary</code></h4>
+          <p><strong>Default:</strong> <code>#00ff88</code></p>
+          <p><strong>Usage:</strong> Secondary accent for complementary elements or hover states.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="color: var(--accent-secondary); margin: 0;"><code>color: var(--accent-secondary);</code></p>
+          </div>
+
+          <h4><code>--accent-tertiary</code></h4>
+          <p><strong>Default:</strong> <code>#ff00ff</code></p>
+          <p><strong>Usage:</strong> Tertiary accent for special highlights or decorative elements.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="color: var(--accent-tertiary); margin: 0;"><code>color: var(--accent-tertiary);</code></p>
+          </div>
+
+          <h4><code>--accent-glow</code></h4>
+          <p><strong>Default (Cyan):</strong> <code>rgba(0, 255, 255, 0.5)</code></p>
+          <p><strong>Usage:</strong> Glow color for shadows, text shadows, and hover effects. Used in <code>box-shadow</code> and <code>text-shadow</code>.</p>
+          <div class="p-md bg-secondary rounded m-md" style="box-shadow: 0 0 20px var(--accent-glow);">
+            <p style="margin: 0;"><code>box-shadow: 0 0 20px var(--accent-glow);</code></p>
+          </div>
+          <pre><code>/* Usage in CSS */
+.element {
+  box-shadow: 0 0 20px var(--accent-glow);
+  text-shadow: 0 0 10px var(--accent-glow);
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Glass Effect Variables -->
+    <section id="glass">
+      <div class="container">
+        <h2>Glass Effect Variables</h2>
+        <p>Control the glass morphism effects throughout the design system. These variables create the frosted glass aesthetic.</p>
+
+        <article>
+          <h3>Glass Backgrounds</h3>
+
+          <h4><code>--glass-bg</code></h4>
+          <p><strong>Default:</strong> <code>rgba(255, 255, 255, 0.03)</code></p>
+          <p><strong>Usage:</strong> Base glass background for cards, panels, and components. Very subtle white overlay.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur);">
+            <code>background: var(--glass-bg);</code>
+          </div>
+          <pre><code>/* Customize glass opacity */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.05); /* More opaque */
+}</code></pre>
+
+          <h4><code>--glass-bg-hover</code></h4>
+          <p><strong>Default:</strong> <code>rgba(255, 255, 255, 0.05)</code></p>
+          <p><strong>Usage:</strong> Glass background for hover states. Slightly more opaque than base.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg-hover); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur);">
+            <code>background: var(--glass-bg-hover);</code> (hover state)
+          </div>
+        </article>
+
+        <article>
+          <h3>Glass Borders</h3>
+
+          <h4><code>--glass-border</code></h4>
+          <p><strong>Default:</strong> <code>rgba(255, 255, 255, 0.1)</code></p>
+          <p><strong>Usage:</strong> Standard glass border color. Subtle white border for glass elements.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border);">
+            <code>border: 1px solid var(--glass-border);</code>
+          </div>
+
+          <h4><code>--glass-border-accent</code></h4>
+          <p><strong>Default (Cyan):</strong> <code>rgba(0, 255, 255, 0.3)</code></p>
+          <p><strong>Usage:</strong> Accent border color for hover states and active elements. Theme-specific.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent);">
+            <code>border: 1px solid var(--glass-border-accent);</code> (hover/active)
+          </div>
+        </article>
+
+        <article>
+          <h3>Backdrop Blur</h3>
+
+          <h4><code>--glass-blur</code></h4>
+          <p><strong>Default:</strong> <code>blur(20px)</code></p>
+          <p><strong>Usage:</strong> Standard backdrop blur for glass effects. Used with <code>backdrop-filter</code>.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+            <code>backdrop-filter: var(--glass-blur);</code>
+          </div>
+          <pre><code>/* Usage */
+.element {
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur); /* Safari */
+}</code></pre>
+
+          <h4><code>--glass-blur-strong</code></h4>
+          <p><strong>Default:</strong> <code>blur(40px)</code></p>
+          <p><strong>Usage:</strong> Stronger blur for headers, modals, or elements that need more separation.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur-strong); -webkit-backdrop-filter: var(--glass-blur-strong);">
+            <code>backdrop-filter: var(--glass-blur-strong);</code>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Border Variables -->
+    <section id="borders" class="secondary">
+      <div class="container">
+        <h2>Border Variables</h2>
+        <p>Control border styles, widths, and radius throughout the design system.</p>
+
+        <article>
+          <h3>Border Properties</h3>
+
+          <h4><code>--border-width</code></h4>
+          <p><strong>Default:</strong> <code>1px</code></p>
+          <p><strong>Usage:</strong> Standard border width for all borders.</p>
+          <div class="p-md rounded m-md" style="border: var(--border-width) solid var(--glass-border);">
+            <code>border-width: var(--border-width);</code>
+          </div>
+
+          <h4><code>--border-style</code></h4>
+          <p><strong>Default:</strong> <code>solid</code></p>
+          <p><strong>Usage:</strong> Border style. Can be changed to <code>dashed</code>, <code>dotted</code>, etc.</p>
+          <pre><code>:root {
+  --border-style: dashed; /* Change to dashed borders */
+}</code></pre>
+
+          <h4><code>--border-color</code></h4>
+          <p><strong>Default:</strong> <code>var(--glass-border)</code></p>
+          <p><strong>Usage:</strong> Default border color. References glass border variable.</p>
+
+          <h4><code>--border-accent</code></h4>
+          <p><strong>Default:</strong> <code>var(--glass-border-accent)</code></p>
+          <p><strong>Usage:</strong> Accent border color. References glass border accent variable.</p>
+        </article>
+
+        <article>
+          <h3>Border Radius</h3>
+
+          <h4><code>--border-radius</code></h4>
+          <p><strong>Default:</strong> <code>12px</code></p>
+          <p><strong>Usage:</strong> Standard border radius for cards, buttons, and rounded elements.</p>
+          <div class="p-md m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>border-radius: var(--border-radius);</code>
+          </div>
+          <pre><code>/* Customize roundness */
+:root {
+  --border-radius: 16px; /* More rounded */
+  --border-radius: 8px;  /* Less rounded */
+}</code></pre>
+
+          <h4><code>--border-radius-sm</code></h4>
+          <p><strong>Default:</strong> <code>8px</code></p>
+          <p><strong>Usage:</strong> Small border radius for compact elements or inline code.</p>
+          <div class="p-md m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm);">
+            <code>border-radius: var(--border-radius-sm);</code>
+          </div>
+
+          <h4><code>--border-radius-lg</code></h4>
+          <p><strong>Default:</strong> <code>16px</code></p>
+          <p><strong>Usage:</strong> Large border radius for prominent elements or hero sections.</p>
+          <div class="p-md m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg);">
+            <code>border-radius: var(--border-radius-lg);</code>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Shadow & Glow Variables -->
+    <section id="shadows">
+      <div class="container">
+        <h2>Shadow & Glow Variables</h2>
+        <p>Control shadows and glow effects for depth and lighting.</p>
+
+        <article>
+          <h3>Shadows</h3>
+
+          <h4><code>--shadow-sm</code></h4>
+          <p><strong>Default:</strong> <code>0 2px 8px rgba(0, 0, 0, 0.3)</code></p>
+          <p><strong>Usage:</strong> Small shadow for subtle elevation. Use on buttons and small cards.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-sm);">
+            <code>box-shadow: var(--shadow-sm);</code>
+          </div>
+
+          <h4><code>--shadow-md</code></h4>
+          <p><strong>Default:</strong> <code>0 4px 16px rgba(0, 0, 0, 0.4)</code></p>
+          <p><strong>Usage:</strong> Medium shadow for cards and panels. Standard elevation.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-md);">
+            <code>box-shadow: var(--shadow-md);</code>
+          </div>
+
+          <h4><code>--shadow-lg</code></h4>
+          <p><strong>Default:</strong> <code>0 8px 32px rgba(0, 0, 0, 0.5)</code></p>
+          <p><strong>Usage:</strong> Large shadow for modals, dropdowns, and elevated surfaces.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg);">
+            <code>box-shadow: var(--shadow-lg);</code>
+          </div>
+        </article>
+
+        <article>
+          <h3>Glows</h3>
+
+          <h4><code>--glow-accent</code></h4>
+          <p><strong>Default:</strong> <code>0 0 20px var(--accent-glow)</code></p>
+          <p><strong>Usage:</strong> Standard accent glow for hover states and active elements.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent);">
+            <code>box-shadow: var(--glow-accent);</code>
+          </div>
+          <pre><code>/* Usage */
+button:hover {
+  box-shadow: var(--glow-accent);
+}</code></pre>
+
+          <h4><code>--glow-accent-strong</code></h4>
+          <p><strong>Default:</strong> <code>0 0 40px var(--accent-glow)</code></p>
+          <p><strong>Usage:</strong> Strong accent glow for prominent elements or focus states.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent-strong);">
+            <code>box-shadow: var(--glow-accent-strong);</code>
+          </div>
+
+          <h4><code>--glow-inner</code></h4>
+          <p><strong>Default:</strong> <code>inset 0 0 20px rgba(0, 255, 255, 0.1)</code></p>
+          <p><strong>Usage:</strong> Inner glow for depth. Creates a subtle inner light effect.</p>
+          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--glow-inner);">
+            <code>box-shadow: var(--glow-inner);</code>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Typography Variables -->
+    <section id="typography" class="secondary">
+      <div class="container">
+        <h2>Typography Variables</h2>
+        <p>Control fonts, sizes, weights, and text spacing.</p>
+
+        <article>
+          <h3>Font Families</h3>
+
+          <h4><code>--font-family</code></h4>
+          <p><strong>Default:</strong> <code>'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace</code></p>
+          <p><strong>Usage:</strong> Monospace font for code, technical content, and brand elements.</p>
+          <div class="p-md bg-secondary rounded m-md" style="font-family: var(--font-family);">
+            <code style="font-family: var(--font-family);">font-family: var(--font-family);</code>
+          </div>
+
+          <h4><code>--font-family-body</code></h4>
+          <p><strong>Default:</strong> <code>system-ui, -apple-system, sans-serif</code></p>
+          <p><strong>Usage:</strong> Body font for paragraphs and general content. Uses system fonts.</p>
+          <div class="p-md bg-secondary rounded m-md" style="font-family: var(--font-family-body);">
+            <p style="margin: 0; font-family: var(--font-family-body);">font-family: var(--font-family-body);</p>
+          </div>
+        </article>
+
+        <article>
+          <h3>Font Sizes</h3>
+          <p>Complete size scale from extra small to extra extra large.</p>
+
+          <h4><code>--font-size-xs</code></h4>
+          <p><strong>Default:</strong> <code>0.75rem</code> (12px)</p>
+          <p><strong>Usage:</strong> Extra small text for captions, labels, and fine print.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="font-size: var(--font-size-xs); margin: 0;">font-size: var(--font-size-xs);</p>
+          </div>
+
+          <h4><code>--font-size-sm</code></h4>
+          <p><strong>Default:</strong> <code>0.875rem</code> (14px)</p>
+          <p><strong>Usage:</strong> Small text for secondary content and metadata.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="font-size: var(--font-size-sm); margin: 0;">font-size: var(--font-size-sm);</p>
+          </div>
+
+          <h4><code>--font-size-base</code></h4>
+          <p><strong>Default:</strong> <code>1rem</code> (16px)</p>
+          <p><strong>Usage:</strong> Base font size for body text and paragraphs.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="font-size: var(--font-size-base); margin: 0;">font-size: var(--font-size-base);</p>
+          </div>
+
+          <h4><code>--font-size-lg</code></h4>
+          <p><strong>Default:</strong> <code>1.125rem</code> (18px)</p>
+          <p><strong>Usage:</strong> Large text for emphasized content.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="font-size: var(--font-size-lg); margin: 0;">font-size: var(--font-size-lg);</p>
+          </div>
+
+          <h4><code>--font-size-xl</code></h4>
+          <p><strong>Default:</strong> <code>1.25rem</code> (20px)</p>
+          <p><strong>Usage:</strong> Extra large text for subheadings.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <p style="font-size: var(--font-size-xl); margin: 0;">font-size: var(--font-size-xl);</p>
+          </div>
+
+          <h4><code>--font-size-2xl</code></h4>
+          <p><strong>Default:</strong> <code>1.5rem</code> (24px)</p>
+          <p><strong>Usage:</strong> 2X large for h3 headings.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <h3 style="font-size: var(--font-size-2xl); margin: 0;">font-size: var(--font-size-2xl);</h3>
+          </div>
+
+          <h4><code>--font-size-3xl</code></h4>
+          <p><strong>Default:</strong> <code>2rem</code> (32px)</p>
+          <p><strong>Usage:</strong> 3X large for h2 headings.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <h2 style="font-size: var(--font-size-3xl); margin: 0;">font-size: var(--font-size-3xl);</h2>
+          </div>
+
+          <h4><code>--font-size-4xl</code></h4>
+          <p><strong>Default:</strong> <code>2.5rem</code> (40px)</p>
+          <p><strong>Usage:</strong> 4X large for large h2 headings.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <h2 style="font-size: var(--font-size-4xl); margin: 0;">font-size: var(--font-size-4xl);</h2>
+          </div>
+
+          <h4><code>--font-size-5xl</code></h4>
+          <p><strong>Default:</strong> <code>3.5rem</code> (56px)</p>
+          <p><strong>Usage:</strong> 5X large for h1 hero headings.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <h1 style="font-size: var(--font-size-5xl); margin: 0;">font-size: var(--font-size-5xl);</h1>
+          </div>
+        </article>
+
+        <article>
+          <h3>Font Weights</h3>
+
+          <h4><code>--font-weight-normal</code></h4>
+          <p><strong>Default:</strong> <code>400</code></p>
+          <p><strong>Usage:</strong> Normal font weight for body text.</p>
+
+          <h4><code>--font-weight-medium</code></h4>
+          <p><strong>Default:</strong> <code>500</code></p>
+          <p><strong>Usage:</strong> Medium font weight for buttons and emphasized text.</p>
+
+          <h4><code>--font-weight-bold</code></h4>
+          <p><strong>Default:</strong> <code>700</code></p>
+          <p><strong>Usage:</strong> Bold font weight for headings and strong emphasis.</p>
+        </article>
+
+        <article>
+          <h3>Line Height & Letter Spacing</h3>
+
+          <h4><code>--line-height-tight</code></h4>
+          <p><strong>Default:</strong> <code>1.2</code></p>
+          <p><strong>Usage:</strong> Tight line height for headings.</p>
+
+          <h4><code>--line-height-normal</code></h4>
+          <p><strong>Default:</strong> <code>1.6</code></p>
+          <p><strong>Usage:</strong> Normal line height for body text and paragraphs.</p>
+
+          <h4><code>--letter-spacing-tight</code></h4>
+          <p><strong>Default:</strong> <code>-0.02em</code></p>
+          <p><strong>Usage:</strong> Tight letter spacing for large headings (h1).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Spacing Variables -->
+    <section id="spacing">
+      <div class="container">
+        <h2>Spacing Variables</h2>
+        <p>Consistent spacing scale for padding, margin, and gaps.</p>
+
+        <article>
+          <h3>Spacing Scale</h3>
+          <p>All spacing values use a consistent scale from extra small to 4X large.</p>
+
+          <h4><code>--spacing-xs</code></h4>
+          <p><strong>Default:</strong> <code>0.25rem</code> (4px)</p>
+          <p><strong>Usage:</strong> Extra small spacing for tight layouts.</p>
+          <div class="m-md" style="padding: var(--spacing-xs); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>padding: var(--spacing-xs);</code>
+          </div>
+
+          <h4><code>--spacing-sm</code></h4>
+          <p><strong>Default:</strong> <code>0.5rem</code> (8px)</p>
+          <p><strong>Usage:</strong> Small spacing for compact elements.</p>
+          <div class="m-md" style="padding: var(--spacing-sm); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>padding: var(--spacing-sm);</code>
+          </div>
+
+          <h4><code>--spacing-md</code></h4>
+          <p><strong>Default:</strong> <code>1rem</code> (16px)</p>
+          <p><strong>Usage:</strong> Medium spacing - the base unit. Most common spacing value.</p>
+          <div class="m-md" style="padding: var(--spacing-md); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>padding: var(--spacing-md);</code>
+          </div>
+
+          <h4><code>--spacing-lg</code></h4>
+          <p><strong>Default:</strong> <code>1.5rem</code> (24px)</p>
+          <p><strong>Usage:</strong> Large spacing for card padding and section gaps.</p>
+          <div class="m-md" style="padding: var(--spacing-lg); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>padding: var(--spacing-lg);</code>
+          </div>
+
+          <h4><code>--spacing-xl</code></h4>
+          <p><strong>Default:</strong> <code>2rem</code> (32px)</p>
+          <p><strong>Usage:</strong> Extra large spacing for container padding and major gaps.</p>
+          <div class="m-md" style="padding: var(--spacing-xl); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>padding: var(--spacing-xl);</code>
+          </div>
+
+          <h4><code>--spacing-2xl</code></h4>
+          <p><strong>Default:</strong> <code>3rem</code> (48px)</p>
+          <p><strong>Usage:</strong> 2X large spacing for major section spacing.</p>
+          <div class="m-md" style="padding: var(--spacing-2xl); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>padding: var(--spacing-2xl);</code>
+          </div>
+
+          <h4><code>--spacing-3xl</code></h4>
+          <p><strong>Default:</strong> <code>4rem</code> (64px)</p>
+          <p><strong>Usage:</strong> 3X large spacing for hero sections.</p>
+
+          <h4><code>--spacing-4xl</code></h4>
+          <p><strong>Default:</strong> <code>6rem</code> (96px)</p>
+          <p><strong>Usage:</strong> 4X large spacing for major page sections.</p>
+        </article>
+
+        <article>
+          <h3>Usage Examples</h3>
+          <pre><code>/* Padding */
+.element {
+  padding: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+}
+
+/* Margin */
+.element {
+  margin: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Gap in flexbox/grid */
+.container {
+  display: flex;
+  gap: var(--spacing-lg);
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Layout Variables -->
+    <section id="layout" class="secondary">
+      <div class="container">
+        <h2>Layout Variables</h2>
+        <p>Control container widths and layout spacing.</p>
+
+        <article>
+          <h3>Container Settings</h3>
+
+          <h4><code>--container-width</code></h4>
+          <p><strong>Default:</strong> <code>1200px</code></p>
+          <p><strong>Usage:</strong> Maximum width for main content containers. Centers content on large screens.</p>
+          <div class="m-md" style="max-width: var(--container-width); margin: 0 auto; padding: var(--spacing-md); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+            <code>max-width: var(--container-width);</code>
+          </div>
+          <pre><code>/* Customize container width */
+:root {
+  --container-width: 1400px; /* Wider */
+  --container-width: 960px;  /* Narrower */
+}</code></pre>
+
+          <h4><code>--container-padding</code></h4>
+          <p><strong>Default:</strong> <code>var(--spacing-xl)</code> (2rem)</p>
+          <p><strong>Usage:</strong> Horizontal padding for containers. Provides side spacing on all screen sizes.</p>
+          <pre><code>.container {
+  max-width: var(--container-width);
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+}</code></pre>
+
+          <h4><code>--section-padding</code></h4>
+          <p><strong>Default:</strong> <code>var(--spacing-4xl) 0</code> (6rem 0)</p>
+          <p><strong>Usage:</strong> Vertical padding for major sections. Top and bottom spacing.</p>
+          <pre><code>section {
+  padding: var(--section-padding);
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Transition Variables -->
+    <section id="transitions">
+      <div class="container">
+        <h2>Transition Variables</h2>
+        <p>Control animation timing and easing for smooth interactions.</p>
+
+        <article>
+          <h3>Transition Timing</h3>
+
+          <h4><code>--transition-fast</code></h4>
+          <p><strong>Default:</strong> <code>0.15s ease</code></p>
+          <p><strong>Usage:</strong> Fast transitions for hover states and quick interactions.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <button style="transition: all var(--transition-fast);">Hover me (fast)</button>
+          </div>
+          <pre><code>button {
+  transition: all var(--transition-fast);
+}</code></pre>
+
+          <h4><code>--transition-base</code></h4>
+          <p><strong>Default:</strong> <code>0.2s ease</code></p>
+          <p><strong>Usage:</strong> Standard transition timing. Most common for hover and state changes.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <button style="transition: all var(--transition-base);">Hover me (base)</button>
+          </div>
+
+          <h4><code>--transition-slow</code></h4>
+          <p><strong>Default:</strong> <code>0.3s ease</code></p>
+          <p><strong>Usage:</strong> Slow transitions for major state changes or page transitions.</p>
+          <div class="p-md bg-secondary rounded m-md">
+            <button style="transition: all var(--transition-slow);">Hover me (slow)</button>
+          </div>
+        </article>
+
+        <article>
+          <h3>Usage Examples</h3>
+          <pre><code>/* Standard hover transition */
+.element {
+  transition: all var(--transition-base);
+}
+
+.element:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-accent);
+}
+
+/* Fast color change */
+.link {
+  transition: color var(--transition-fast);
+}
+
+/* Slow transform */
+.modal {
+  transition: transform var(--transition-slow);
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- CRT Effect Variables -->
+    <section id="crt" class="secondary">
+      <div class="container">
+        <h2>CRT Effect Variables</h2>
+        <p>Control the retro CRT scanline effects.</p>
+
+        <article>
+          <h3>Scanline Effects</h3>
+
+          <h4><code>--crt-scanline</code></h4>
+          <p><strong>Default:</strong> <code>repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px)</code></p>
+          <p><strong>Usage:</strong> Creates horizontal scanlines for CRT effect. Applied to body::before pseudo-element.</p>
+          <div class="p-md bg-secondary rounded m-md" style="position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--crt-scanline); pointer-events: none; opacity: 0.3;"></div>
+            <p style="position: relative; z-index: 1; margin: 0;">CRT scanline effect overlay</p>
+          </div>
+          <pre><code>/* Applied automatically to body */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--crt-scanline);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+}
+
+/* Disable CRT effect */
+body::before {
+  display: none;
+}</code></pre>
+
+          <h4><code>--crt-flicker</code></h4>
+          <p><strong>Default:</strong> <code>0.15s</code></p>
+          <p><strong>Usage:</strong> Timing for CRT flicker animations (if implemented).</p>
+        </article>
+
+        <article>
+          <h3>Customizing CRT Effects</h3>
+          <pre><code>/* More visible scanlines */
+:root {
+  --crt-scanline: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.3),  /* Darker lines */
+    rgba(0, 0, 0, 0.3) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* Thicker scanlines */
+:root {
+  --crt-scanline: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 2px,  /* 2px lines */
+    transparent 2px,
+    transparent 4px
+  );
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Quick Reference -->
+    <section id="quick-reference">
+      <div class="container">
+        <h2>Quick Reference</h2>
+        <p>Common variable overrides and customization patterns.</p>
+
+        <article>
+          <h3>Common Customizations</h3>
+          <pre><code>/* Change accent color globally */
+:root {
+  --accent-primary: #ff6b35;
+  --accent-glow: rgba(255, 107, 53, 0.6);
+  --glass-border-accent: rgba(255, 107, 53, 0.4);
+}
+
+/* Make glass more opaque */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+}
+
+/* Increase border radius */
+:root {
+  --border-radius: 16px;
+  --border-radius-lg: 24px;
+}
+
+/* Tighter spacing */
+:root {
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1.25rem;
+}
+
+/* Wider container */
+:root {
+  --container-width: 1400px;
+}</code></pre>
+        </article>
+
+        <article>
+          <h3>Creating a Custom Theme</h3>
+          <pre><code>[data-theme="custom"] {
+  /* Accent colors */
+  --accent-primary: #your-color;
+  --accent-secondary: #your-secondary;
+  --accent-tertiary: #your-tertiary;
+  --accent-glow: rgba(/* your color with opacity */);
+  
+  /* Glass borders */
+  --glass-border-accent: rgba(/* your color with opacity */);
+}
+
+/* Usage */
+&lt;body data-theme="custom"&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="grid">
+      <div>
+        <h3>ApeWorX</h3>
+        <p>Futuristic design systems for modern web applications.</p>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="variables.html">Variables</a></li>
+          <li><a href="index.html">Examples</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="variables.html#colors">Colors</a></li>
+          <li><a href="variables.html#glass">Glass Effects</a></li>
+          <li><a href="variables.html#typography">Typography</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; 2024 ApeWorX. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Switcher Dropdown
+    const themeButton = document.getElementById('themeButton');
+    const themeMenu = document.getElementById('themeMenu');
+    const themeButtonText = document.getElementById('themeButtonText');
+    
+    const themeNames = {
+      cyan: 'Cyan Nexus',
+      purple: 'Purple Matrix',
+      green: 'Green Terminal',
+      orange: 'Orange Fusion',
+      pink: 'Pink Neon'
+    };
+    
+    // Toggle dropdown
+    themeButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themeMenu.classList.toggle('open');
+      themeButton.classList.toggle('open');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!themeButton.contains(e.target) && !themeMenu.contains(e.target)) {
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+      }
+    });
+    
+    // Theme selection
+    document.querySelectorAll('.theme-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const theme = option.getAttribute('data-theme');
+        document.body.setAttribute('data-theme', theme);
+        
+        // Update button text
+        themeButtonText.textContent = themeNames[theme];
+        
+        // Update active state
+        document.querySelectorAll('.theme-option').forEach(opt => {
+          opt.classList.remove('active');
+        });
+        option.classList.add('active');
+        
+        // Close dropdown
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+        
+        // Save to localStorage
+        localStorage.setItem('ape-theme', theme);
+      });
+    });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('ape-theme');
+    if (savedTheme) {
+      document.body.setAttribute('data-theme', savedTheme);
+      themeButtonText.textContent = themeNames[savedTheme];
+      document.querySelector(`.theme-option[data-theme="${savedTheme}"]`)?.classList.add('active');
+      document.querySelectorAll('.theme-option').forEach(opt => {
+        if (opt.getAttribute('data-theme') !== savedTheme) {
+          opt.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
