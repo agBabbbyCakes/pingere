@@ -32,7 +32,7 @@
       <div class="container">
         <div class="wireframe-label">1. Landing Page</div>
         <section class="hero">
-          <h2>Your Product Name</h2>
+          <h2>Silverback Product</h2>
           <p class="hero-text">Compelling tagline that captures attention and explains your value proposition</p>
           <div class="btn-group">
             <button>Get Started</button>
@@ -134,46 +134,83 @@
       </div>
     </section>
 
-    <!-- 3. E-commerce Product Page -->
+    <!-- 3. ETH Wallet -->
     <section class="wireframe-section">
       <div class="container">
-        <div class="wireframe-label">3. E-commerce Product Page</div>
+        <div class="wireframe-label">3. ETH Wallet</div>
         <div class="grid">
-          <article class="bg-secondary rounded p-xl">
-            <div class="bg-card rounded p-2xl text-center min-h-2xl placeholder">
-              <span class="muted">Product Image</span>
+          <article class="wallet-card">
+            <div class="wallet-balance text-center">
+              <div class="wallet-icon">
+                <span class="accent text-2xl">Ξ</span>
+              </div>
+              <h2 class="accent">2.45 ETH</h2>
+              <p class="wallet-usd-value muted text-sm">$4,234.50 USD</p>
+              <div class="wallet-address">
+                <p class="text-sm muted">Wallet Address</p>
+                <code class="text-xs">0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb</code>
+              </div>
+            </div>
+            <div class="wallet-actions flex gap-md">
+              <button class="flex-1">Send</button>
+              <button class="flex-1 outline">Receive</button>
             </div>
           </article>
           
-          <article>
-            <h1>Premium Product Name</h1>
-            <p class="text-xl accent bold">$99.99</p>
-            <p class="muted">In stock • Free shipping</p>
-            <p class="mt-lg">Product description goes here. This is a detailed explanation of the product features, benefits, and specifications.</p>
-            <div class="flex gap-md mt-xl">
-              <button class="flex-1">Add to Cart</button>
-              <button class="outline">Wishlist</button>
+          <article class="wallet-overview">
+            <h2>Wallet Overview</h2>
+            <div class="wallet-stats grid compact">
+              <article class="stat-card text-center">
+                <h3 class="accent">12</h3>
+                <p class="text-sm muted">Transactions</p>
+              </article>
+              <article class="stat-card text-center">
+                <h3 class="accent">0.05</h3>
+                <p class="text-sm muted">ETH Gas</p>
+              </article>
+              <article class="stat-card text-center">
+                <h3 class="accent">$234</h3>
+                <p class="text-sm muted">24h Change</p>
+              </article>
+            </div>
+            
+            <div class="wallet-activity">
+              <h3>Recent Activity</h3>
+              <div class="transaction-list">
+                <div class="transaction-item">
+                  <div class="transaction-details">
+                    <span class="transaction-type accent">Sent</span>
+                    <span class="transaction-address muted">0x8ba1f...9e00</span>
+                  </div>
+                  <div class="transaction-amount">
+                    <span class="accent">-0.5 ETH</span>
+                    <span class="transaction-time muted">2 hours ago</span>
+                  </div>
+                </div>
+                <div class="transaction-item">
+                  <div class="transaction-details">
+                    <span class="transaction-type accent">Received</span>
+                    <span class="transaction-address muted">0x3f5C...f0bE</span>
+                  </div>
+                  <div class="transaction-amount">
+                    <span class="accent">+1.2 ETH</span>
+                    <span class="transaction-time muted">1 day ago</span>
+                  </div>
+                </div>
+                <div class="transaction-item">
+                  <div class="transaction-details">
+                    <span class="transaction-type accent">Swapped</span>
+                    <span class="transaction-address muted">ETH → USDC</span>
+                  </div>
+                  <div class="transaction-amount">
+                    <span class="accent">-0.3 ETH</span>
+                    <span class="transaction-time muted">3 days ago</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
         </div>
-        
-        <section class="mt-2xl">
-          <h2>Customer Reviews</h2>
-          <div class="grid">
-            <article>
-              <h4>Great Product!</h4>
-              <p class="text-sm muted">★★★★★</p>
-              <p>This product exceeded my expectations. Highly recommend!</p>
-              <small class="muted">— Verified Customer</small>
-            </article>
-            <article>
-              <h4>Excellent Quality</h4>
-              <p class="text-sm muted">★★★★★</p>
-              <p>Fast shipping and great customer service. Will buy again.</p>
-              <small class="muted">— Happy Shopper</small>
-            </article>
-          </div>
-        </section>
       </div>
     </section>
 
