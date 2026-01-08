@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>ApeWorX - Ape Design System</title>
   <link rel="stylesheet" href="assets/ape-design.css">
 </head>
 <body data-theme="cyan">
   <header>
     <nav>
-      <a href="#" class="brand">APE DESIGN</a>
-      <div class="links">
+      <a href="index.html" class="brand">APE DESIGN</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">☰</button>
+      <div class="links" id="navLinks">
         <a href="#features">Features</a>
         <a href="#themes">Themes</a>
         <a href="#components">Components</a>
@@ -472,6 +473,22 @@
         if (opt.getAttribute('data-theme') !== savedTheme) {
           opt.classList.remove('active');
         }
+      });
+    }
+    
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuToggle && navLinks) {
+      mobileMenuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+      
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+        });
       });
     }
   </script>

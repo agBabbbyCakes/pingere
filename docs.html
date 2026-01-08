@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Documentation - Ape Design System</title>
   <link rel="stylesheet" href="assets/ape-design.css">
 </head>
@@ -10,7 +10,8 @@
   <header>
     <nav>
       <a href="index.html" class="brand">APE DESIGN</a>
-      <div class="links">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">☰</button>
+      <div class="links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="docs.html">Documentation</a>
         <a href="variables.html">Variables</a>
@@ -570,6 +571,22 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
         if (opt.getAttribute('data-theme') !== savedTheme) {
           opt.classList.remove('active');
         }
+      });
+    }
+    
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuToggle && navLinks) {
+      mobileMenuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+      
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+        });
       });
     }
   </script>
