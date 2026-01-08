@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>CSS Variables Reference - Ape Design System</title>
   <link rel="stylesheet" href="assets/ape-design.css">
+  <script src="assets/mobile-menu.js" defer></script>
 </head>
 <body data-theme="cyan">
+  <div class="grid-overlay"></div>
   <header>
     <nav>
       <a href="index.html" class="brand">APE DESIGN</a>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">☰</button>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="mobileMenuToggle">☰</button>
       <div class="links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="docs.html">Documentation</a>
@@ -131,7 +133,7 @@
           <h4><code>--bg-primary</code></h4>
           <p><strong>Default:</strong> <code>#000000</code></p>
           <p><strong>Usage:</strong> Main page background color. This is the darkest background layer.</p>
-          <div class="p-md bg-secondary rounded m-md" style="background: var(--bg-primary); border: 1px solid var(--glass-border);">
+          <div class="p-md bg-secondary rounded m-md var-bg-primary">
             <code>background: var(--bg-primary);</code>
           </div>
           <pre><code>/* Override example */
@@ -142,14 +144,14 @@
           <h4><code>--bg-secondary</code></h4>
           <p><strong>Default:</strong> <code>#0a0a0f</code></p>
           <p><strong>Usage:</strong> Secondary background for sections and panels. Slightly lighter than primary.</p>
-          <div class="p-md rounded m-md" style="background: var(--bg-secondary); border: 1px solid var(--glass-border);">
+          <div class="p-md rounded m-md var-bg-secondary">
             <code>background: var(--bg-secondary);</code>
           </div>
 
           <h4><code>--bg-tertiary</code></h4>
           <p><strong>Default:</strong> <code>#151520</code></p>
           <p><strong>Usage:</strong> Tertiary background for nested components or elevated surfaces.</p>
-          <div class="p-md rounded m-md" style="background: var(--bg-tertiary); border: 1px solid var(--glass-border);">
+          <div class="p-md rounded m-md var-bg-tertiary">
             <code>background: var(--bg-tertiary);</code>
           </div>
         </article>
@@ -162,28 +164,28 @@
           <p><strong>Default:</strong> <code>#ffffff</code></p>
           <p><strong>Usage:</strong> Primary text color for headings and important content. Highest contrast.</p>
           <div class="p-md bg-secondary rounded m-md">
-            <p style="color: var(--text-primary); margin: 0;"><code>color: var(--text-primary);</code> - This is primary text</p>
+            <p class="var-text-primary"><code>color: var(--text-primary);</code> - This is primary text</p>
           </div>
 
           <h4><code>--text-secondary</code></h4>
           <p><strong>Default:</strong> <code>#e5e7eb</code></p>
           <p><strong>Usage:</strong> Secondary text for body content and paragraphs. Good readability.</p>
           <div class="p-md bg-secondary rounded m-md">
-            <p style="color: var(--text-secondary); margin: 0;"><code>color: var(--text-secondary);</code> - This is secondary text</p>
+            <p class="var-text-secondary"><code>color: var(--text-secondary);</code> - This is secondary text</p>
           </div>
 
           <h4><code>--text-muted</code></h4>
           <p><strong>Default:</strong> <code>#9ca3af</code></p>
           <p><strong>Usage:</strong> Muted text for less important information, captions, and metadata.</p>
           <div class="p-md bg-secondary rounded m-md">
-            <p style="color: var(--text-muted); margin: 0;"><code>color: var(--text-muted);</code> - This is muted text</p>
+            <p class="var-text-muted"><code>color: var(--text-muted);</code> - This is muted text</p>
           </div>
 
           <h4><code>--text-dim</code></h4>
           <p><strong>Default:</strong> <code>#6b7280</code></p>
           <p><strong>Usage:</strong> Dim text for disabled states or very low-priority content.</p>
           <div class="p-md bg-secondary rounded m-md">
-            <p style="color: var(--text-dim); margin: 0;"><code>color: var(--text-dim);</code> - This is dim text</p>
+            <p class="var-text-dim"><code>color: var(--text-dim);</code> - This is dim text</p>
           </div>
         </article>
 
@@ -195,8 +197,8 @@
           <p><strong>Default (Cyan):</strong> <code>#00ffff</code></p>
           <p><strong>Usage:</strong> Primary accent color for links, buttons, highlights, and interactive elements. This is the main theme color.</p>
           <div class="p-md bg-secondary rounded m-md">
-            <p style="color: var(--accent-primary); margin: 0;"><code>color: var(--accent-primary);</code> - Accent text</p>
-            <button style="margin-top: 0.5rem;">Button with accent</button>
+            <p class="var-text-accent-primary"><code>color: var(--accent-primary);</code> - Accent text</p>
+            <button class="mt-sm">Button with accent</button>
           </div>
           <pre><code>/* Theme-specific overrides */
 [data-theme="purple"] {
@@ -211,21 +213,21 @@
           <p><strong>Default:</strong> <code>#00ff88</code></p>
           <p><strong>Usage:</strong> Secondary accent for complementary elements or hover states.</p>
           <div class="p-md bg-secondary rounded m-md">
-            <p style="color: var(--accent-secondary); margin: 0;"><code>color: var(--accent-secondary);</code></p>
+            <p class="var-text-accent-secondary"><code>color: var(--accent-secondary);</code></p>
           </div>
 
           <h4><code>--accent-tertiary</code></h4>
           <p><strong>Default:</strong> <code>#ff00ff</code></p>
           <p><strong>Usage:</strong> Tertiary accent for special highlights or decorative elements.</p>
           <div class="p-md bg-secondary rounded m-md">
-            <p style="color: var(--accent-tertiary); margin: 0;"><code>color: var(--accent-tertiary);</code></p>
+            <p class="var-text-accent-tertiary"><code>color: var(--accent-tertiary);</code></p>
           </div>
 
           <h4><code>--accent-glow</code></h4>
           <p><strong>Default (Cyan):</strong> <code>rgba(0, 255, 255, 0.5)</code></p>
           <p><strong>Usage:</strong> Glow color for shadows, text shadows, and hover effects. Used in <code>box-shadow</code> and <code>text-shadow</code>.</p>
-          <div class="p-md bg-secondary rounded m-md" style="box-shadow: 0 0 20px var(--accent-glow);">
-            <p style="margin: 0;"><code>box-shadow: 0 0 20px var(--accent-glow);</code></p>
+          <div class="p-md bg-secondary rounded m-md var-glow">
+            <p class="m-0"><code>box-shadow: 0 0 20px var(--accent-glow);</code></p>
           </div>
           <pre><code>/* Usage in CSS */
 .element {
@@ -248,7 +250,7 @@
           <h4><code>--glass-bg</code></h4>
           <p><strong>Default:</strong> <code>rgba(255, 255, 255, 0.03)</code></p>
           <p><strong>Usage:</strong> Base glass background for cards, panels, and components. Very subtle white overlay.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur);">
+          <div class="p-md rounded m-md var-glass-bg">
             <code>background: var(--glass-bg);</code>
           </div>
           <pre><code>/* Customize glass opacity */
@@ -259,7 +261,7 @@
           <h4><code>--glass-bg-hover</code></h4>
           <p><strong>Default:</strong> <code>rgba(255, 255, 255, 0.05)</code></p>
           <p><strong>Usage:</strong> Glass background for hover states. Slightly more opaque than base.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg-hover); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur);">
+          <div class="p-md rounded m-md var-glass-bg-hover">
             <code>background: var(--glass-bg-hover);</code> (hover state)
           </div>
         </article>
@@ -270,14 +272,14 @@
           <h4><code>--glass-border</code></h4>
           <p><strong>Default:</strong> <code>rgba(255, 255, 255, 0.1)</code></p>
           <p><strong>Usage:</strong> Standard glass border color. Subtle white border for glass elements.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border);">
+          <div class="p-md rounded m-md var-glass-border">
             <code>border: 1px solid var(--glass-border);</code>
           </div>
 
           <h4><code>--glass-border-accent</code></h4>
           <p><strong>Default (Cyan):</strong> <code>rgba(0, 255, 255, 0.3)</code></p>
           <p><strong>Usage:</strong> Accent border color for hover states and active elements. Theme-specific.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent);">
+          <div class="p-md rounded m-md var-glass-border-accent">
             <code>border: 1px solid var(--glass-border-accent);</code> (hover/active)
           </div>
         </article>
@@ -288,7 +290,7 @@
           <h4><code>--glass-blur</code></h4>
           <p><strong>Default:</strong> <code>blur(20px)</code></p>
           <p><strong>Usage:</strong> Standard backdrop blur for glass effects. Used with <code>backdrop-filter</code>.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+          <div class="p-md rounded m-md var-glass-webkit">
             <code>backdrop-filter: var(--glass-blur);</code>
           </div>
           <pre><code>/* Usage */
@@ -300,7 +302,7 @@
           <h4><code>--glass-blur-strong</code></h4>
           <p><strong>Default:</strong> <code>blur(40px)</code></p>
           <p><strong>Usage:</strong> Stronger blur for headers, modals, or elements that need more separation.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur-strong); -webkit-backdrop-filter: var(--glass-blur-strong);">
+          <div class="p-md rounded m-md var-glass-webkit-strong">
             <code>backdrop-filter: var(--glass-blur-strong);</code>
           </div>
         </article>
@@ -345,7 +347,7 @@
           <h4><code>--border-radius</code></h4>
           <p><strong>Default:</strong> <code>12px</code></p>
           <p><strong>Usage:</strong> Standard border radius for cards, buttons, and rounded elements.</p>
-          <div class="p-md m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius);">
+          <div class="p-md m-md var-border-radius">
             <code>border-radius: var(--border-radius);</code>
           </div>
           <pre><code>/* Customize roundness */
@@ -357,14 +359,14 @@
           <h4><code>--border-radius-sm</code></h4>
           <p><strong>Default:</strong> <code>8px</code></p>
           <p><strong>Usage:</strong> Small border radius for compact elements or inline code.</p>
-          <div class="p-md m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm);">
+          <div class="p-md m-md var-border-radius-sm">
             <code>border-radius: var(--border-radius-sm);</code>
           </div>
 
           <h4><code>--border-radius-lg</code></h4>
           <p><strong>Default:</strong> <code>16px</code></p>
           <p><strong>Usage:</strong> Large border radius for prominent elements or hero sections.</p>
-          <div class="p-md m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg);">
+          <div class="p-md m-md var-border-radius-lg">
             <code>border-radius: var(--border-radius-lg);</code>
           </div>
         </article>
@@ -383,21 +385,21 @@
           <h4><code>--shadow-sm</code></h4>
           <p><strong>Default:</strong> <code>0 2px 8px rgba(0, 0, 0, 0.3)</code></p>
           <p><strong>Usage:</strong> Small shadow for subtle elevation. Use on buttons and small cards.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-sm);">
+          <div class="p-md rounded m-md var-shadow-sm">
             <code>box-shadow: var(--shadow-sm);</code>
           </div>
 
           <h4><code>--shadow-md</code></h4>
           <p><strong>Default:</strong> <code>0 4px 16px rgba(0, 0, 0, 0.4)</code></p>
           <p><strong>Usage:</strong> Medium shadow for cards and panels. Standard elevation.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-md);">
+          <div class="p-md rounded m-md var-shadow-md">
             <code>box-shadow: var(--shadow-md);</code>
           </div>
 
           <h4><code>--shadow-lg</code></h4>
           <p><strong>Default:</strong> <code>0 8px 32px rgba(0, 0, 0, 0.5)</code></p>
           <p><strong>Usage:</strong> Large shadow for modals, dropdowns, and elevated surfaces.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg);">
+          <div class="p-md rounded m-md var-shadow-lg">
             <code>box-shadow: var(--shadow-lg);</code>
           </div>
         </article>
@@ -408,7 +410,7 @@
           <h4><code>--glow-accent</code></h4>
           <p><strong>Default:</strong> <code>0 0 20px var(--accent-glow)</code></p>
           <p><strong>Usage:</strong> Standard accent glow for hover states and active elements.</p>
-          <div class="p-md rounded m-md" style="background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent);">
+          <div class="p-md rounded m-md var-glow-accent">
             <code>box-shadow: var(--glow-accent);</code>
           </div>
           <pre><code>/* Usage */
@@ -963,21 +965,7 @@ body::before {
       });
     }
     
-    // Mobile menu toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuToggle && navLinks) {
-      mobileMenuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-      
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('mobile-open');
-        });
-      });
-    }
+    // Mobile menu is handled by assets/mobile-menu.js
   </script>
 </body>
 </html>

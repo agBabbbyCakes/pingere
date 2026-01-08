@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Silverback - Wild</title>
   <link rel="stylesheet" href="assets/ape-design.css">
+  <script src="assets/mobile-menu.js" defer></script>
 </head>
 <body data-theme="green">
+  <div class="grid-overlay"></div>
   <header>
     <nav>
       <a href="index.html" class="brand">APE DESIGN</a>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">☰</button>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="mobileMenuToggle">☰</button>
       <div class="links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="docs.html">Docs</a>
@@ -33,21 +35,7 @@
   </main>
 
   <script>
-    // Mobile menu toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuToggle && navLinks) {
-      mobileMenuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-      
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('mobile-open');
-        });
-      });
-    }
+    // Mobile menu is handled by assets/mobile-menu.js
   </script>
 </body>
 </html>

@@ -5,58 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Documentation - Ape Design System</title>
   <link rel="stylesheet" href="assets/ape-design.css">
+  <script src="assets/mobile-menu.js" defer></script>
 </head>
 <body data-theme="cyan">
+  <div class="grid-overlay"></div>
   <header>
     <nav>
       <a href="index.html" class="brand">APE DESIGN</a>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">☰</button>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="mobileMenuToggle">☰</button>
       <div class="links" id="navLinks">
         <a href="index.html">Home</a>
-        <a href="docs.html">Documentation</a>
+        <a href="wireframes.html">Wireframes</a>
+        <a href="marketing-website/index.html">Marketing Site</a>
+        <a href="docs.html" class="accent">Documentation</a>
         <a href="variables.html">Variables</a>
-        <a href="index.html#themes">Themes</a>
-        <a href="index.html#components">Components</a>
       </div>
       <div class="theme-switcher">
         <div class="theme-dropdown">
           <button class="theme-dropdown-button" id="themeButton">
-            <span id="themeButtonText">Cyan Nexus</span>
+            <span id="themeButtonText">Professional Blue</span>
           </button>
           <div class="theme-dropdown-menu" id="themeMenu">
             <div class="theme-option active" data-theme="cyan">
               <div class="theme-option-color"></div>
               <div class="theme-option-label">
-                <span class="theme-option-name">Cyan Nexus</span>
-                <span class="theme-option-desc">Default theme</span>
-              </div>
-            </div>
-            <div class="theme-option" data-theme="purple">
-              <div class="theme-option-color"></div>
-              <div class="theme-option-label">
-                <span class="theme-option-name">Purple Matrix</span>
-                <span class="theme-option-desc">Deep purple</span>
+                <span class="theme-option-name">Professional Blue</span>
+                <span class="theme-option-desc">B2B & Enterprise</span>
               </div>
             </div>
             <div class="theme-option" data-theme="green">
               <div class="theme-option-color"></div>
               <div class="theme-option-label">
-                <span class="theme-option-name">Green Terminal</span>
-                <span class="theme-option-desc">Classic terminal</span>
-              </div>
-            </div>
-            <div class="theme-option" data-theme="orange">
-              <div class="theme-option-color"></div>
-              <div class="theme-option-label">
-                <span class="theme-option-name">Orange Fusion</span>
-                <span class="theme-option-desc">Warm orange</span>
-              </div>
-            </div>
-            <div class="theme-option" data-theme="pink">
-              <div class="theme-option-color"></div>
-              <div class="theme-option-label">
-                <span class="theme-option-name">Pink Neon</span>
-                <span class="theme-option-desc">Vibrant pink</span>
+                <span class="theme-option-name">Premium Emerald</span>
+                <span class="theme-option-desc">Fintech & Growth</span>
               </div>
             </div>
           </div>
@@ -64,6 +45,49 @@
       </div>
     </nav>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu-panel" id="mobileMenuPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand">APE DESIGN</a>
+      <button class="mobile-menu-close" aria-label="Close menu" id="mobileMenuClose">×</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="wireframes.html">Wireframes</a>
+        <a href="marketing-website/index.html">Marketing Site</a>
+        <a href="docs.html" class="accent">Documentation</a>
+        <a href="variables.html">Variables</a>
+      </nav>
+      <div class="theme-switcher">
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="mobileThemeButton">
+            <span id="mobileThemeButtonText">Professional Blue</span>
+          </button>
+          <div class="theme-dropdown-menu" id="mobileThemeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Professional Blue</span>
+                <span class="theme-option-desc">B2B & Enterprise</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Premium Emerald</span>
+                <span class="theme-option-desc">Fintech & Growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main>
     <!-- Hero Section -->
@@ -94,7 +118,7 @@
           <pre><code>&lt;body data-theme="cyan"&gt;
   &lt;!-- Your content --&gt;
 &lt;/body&gt;</code></pre>
-          <p>Available themes: <code>cyan</code>, <code>purple</code>, <code>green</code>, <code>orange</code>, <code>pink</code></p>
+          <p>Available themes: <code>cyan</code> (Professional Blue), <code>green</code> (Premium Emerald)</p>
         </article>
 
         <article>
@@ -126,7 +150,7 @@
           <h3>JavaScript Method</h3>
           <p>Change themes programmatically:</p>
           <pre><code>// Set theme
-document.body.setAttribute('data-theme', 'purple');
+document.body.setAttribute('data-theme', 'green');
 
 // Get current theme
 const currentTheme = document.body.getAttribute('data-theme');</code></pre>
@@ -138,13 +162,13 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
           <pre><code>&lt;div class="theme-switcher"&gt;
   &lt;div class="theme-dropdown"&gt;
     &lt;button class="theme-dropdown-button" id="themeButton"&gt;
-      &lt;span id="themeButtonText"&gt;Cyan Nexus&lt;/span&gt;
+      &lt;span id="themeButtonText"&gt;Professional Blue&lt;/span&gt;
     &lt;/button&gt;
     &lt;div class="theme-dropdown-menu" id="themeMenu"&gt;
       &lt;div class="theme-option active" data-theme="cyan"&gt;
         &lt;div class="theme-option-color"&gt;&lt;/div&gt;
         &lt;div class="theme-option-label"&gt;
-          &lt;span class="theme-option-name"&gt;Cyan Nexus&lt;/span&gt;
+          &lt;span class="theme-option-name"&gt;Professional Blue&lt;/span&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;!-- More theme options --&gt;
@@ -157,24 +181,14 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
           <h3>Available Themes</h3>
           <div class="grid compact">
             <article>
-              <h4 class="text-accent">Cyan Nexus</h4>
+              <h4 class="text-accent">Professional Blue</h4>
               <p><code>data-theme="cyan"</code></p>
+              <p class="text-sm muted">B2B & Enterprise</p>
             </article>
             <article>
-              <h4 style="color: #a855f7;">Purple Matrix</h4>
-              <p><code>data-theme="purple"</code></p>
-            </article>
-            <article>
-              <h4 style="color: #00ff88;">Green Terminal</h4>
+              <h4 class="theme-color-green">Premium Emerald</h4>
               <p><code>data-theme="green"</code></p>
-            </article>
-            <article>
-              <h4 style="color: #ff6b35;">Orange Fusion</h4>
-              <p><code>data-theme="orange"</code></p>
-            </article>
-            <article>
-              <h4 style="color: #ff00ff;">Pink Neon</h4>
-              <p><code>data-theme="pink"</code></p>
+              <p class="text-sm muted">Fintech & Growth</p>
             </article>
           </div>
         </article>
@@ -509,18 +523,16 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
   </footer>
 
   <script>
+    // Make themeNames available globally for mobile menu
+    window.themeNames = {
+      cyan: 'Professional Blue',
+      green: 'Premium Emerald'
+    };
+    
     // Theme Switcher Dropdown
     const themeButton = document.getElementById('themeButton');
     const themeMenu = document.getElementById('themeMenu');
     const themeButtonText = document.getElementById('themeButtonText');
-    
-    const themeNames = {
-      cyan: 'Cyan Nexus',
-      purple: 'Purple Matrix',
-      green: 'Green Terminal',
-      orange: 'Orange Fusion',
-      pink: 'Pink Neon'
-    };
     
     // Toggle dropdown
     themeButton.addEventListener('click', (e) => {
@@ -574,21 +586,7 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
       });
     }
     
-    // Mobile menu toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuToggle && navLinks) {
-      mobileMenuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-      
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('mobile-open');
-        });
-      });
-    }
+    // Mobile menu is handled by assets/mobile-menu.js
   </script>
 </body>
 </html>

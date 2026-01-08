@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Ape Framework — Build and Explore on-chain with Python</title>
+  <meta name="description" content="Ape Framework is an easy-to-use Web3 development tool. Compile, test, and interact with smart contracts in one CLI session." />
+  <link rel="stylesheet" href="../assets/ape-design.css">
+  <script src="../assets/mobile-menu.js" defer></script>
+</head>
+<body data-theme="cyan">
+  <div class="grid-overlay"></div>
+  <header>
+    <nav>
+      <a href="index.html" class="brand">APEWORX</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="mobileMenuToggle">☰</button>
+      <div class="links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="framework.html" class="accent">Ape Framework</a>
+        <a href="silverback.html">Silverback</a>
+        <a href="https://github.com/ApeWorX" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu-panel" id="mobileMenuPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand">APEWORX</a>
+      <button class="mobile-menu-close" aria-label="Close menu" id="mobileMenuClose">×</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="framework.html" class="accent">Ape Framework</a>
+        <a href="silverback.html">Silverback</a>
+        <a href="https://github.com/ApeWorX" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="grid-overlay"></div>
+      <h1>Ape Framework</h1>
+      <p class="hero-text">
+        Ape Framework is an easy-to-use Web3 development tool. Users can compile, test, and interact with smart contracts all in one command line session. With our modular plugin system, Ape supports multiple contract languages and chains.
+      </p>
+      <div class="btn-group">
+        <a href="https://docs.apeworx.io/" target="_blank" rel="noreferrer" role="button">Read the Docs</a>
+        <a href="index.html" role="button" class="outline">Back to Home</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Features</h2>
+        <p>Everything you need for smart contract development in Python.</p>
+        
+        <div class="grid">
+          <article>
+            <h3>Multi-Chain Support</h3>
+            <p>Support for Ethereum, Polygon, Arbitrum, and more through our plugin system. Switch chains seamlessly.</p>
+          </article>
+
+          <article>
+            <h3>Contract Compilation</h3>
+            <p>Compile Solidity, Vyper, and other contract languages with built-in compilers and plugins.</p>
+          </article>
+
+          <article>
+            <h3>Testing Framework</h3>
+            <p>Write tests in Python using pytest. Test your contracts with comprehensive assertion libraries.</p>
+          </article>
+
+          <article>
+            <h3>Interactive Console</h3>
+            <p>Use Ape Console for an interactive Python REPL with your contracts and chain data pre-loaded.</p>
+          </article>
+
+          <article>
+            <h3>Plugin System</h3>
+            <p>Extend Ape with plugins for new chains, compilers, and development tools. The ecosystem is growing.</p>
+          </article>
+
+          <article>
+            <h3>Pythonic API</h3>
+            <p>Work with contracts and blockchain data using clean, Pythonic APIs. No need to learn new languages.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secondary">
+      <div class="container">
+        <h2>Get Started</h2>
+        <p>Install Ape Framework and start building in minutes.</p>
+        
+        <article class="p-2xl">
+          <h3>Installation</h3>
+          <p>Install Ape Framework using pip:</p>
+          <pre><code>pip install eth-ape</code></pre>
+          <p>Or use our installers for a complete setup:</p>
+          <div class="flex gap-md mt-lg">
+            <a href="/downloads/install-ape.sh" download role="button" class="outline">macOS/Linux Installer</a>
+            <a href="/downloads/install-ape.ps1" download role="button" class="outline">Windows Installer</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Resources</h2>
+        <div class="grid">
+          <article>
+            <h3>Documentation</h3>
+            <p>Complete guides, API references, and tutorials for Ape Framework.</p>
+            <footer>
+              <a href="https://docs.apeworx.io/" target="_blank" rel="noreferrer" role="button" class="outline">View Docs</a>
+            </footer>
+          </article>
+
+          <article>
+            <h3>GitHub</h3>
+            <p>View the source code, contribute, or report issues on GitHub.</p>
+            <footer>
+              <a href="https://github.com/ApeWorX" target="_blank" rel="noreferrer" role="button" class="outline">View on GitHub</a>
+            </footer>
+          </article>
+
+          <article>
+            <h3>Community</h3>
+            <p>Join our Discord community to get help and share your projects.</p>
+            <footer>
+              <a href="https://discord.gg/apeworx" target="_blank" rel="noreferrer" role="button" class="outline">Join Discord</a>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="grid">
+      <div>
+        <h3>ApeWorX</h3>
+        <p>Open-source Python tools for smart contract engineers and data scientists.</p>
+      </div>
+      <div>
+        <h3>Products</h3>
+        <ul>
+          <li><a href="framework.html">Ape Framework</a></li>
+          <li><a href="silverback.html">Silverback</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="https://docs.apeworx.io/" target="_blank" rel="noreferrer">Documentation</a></li>
+          <li><a href="https://github.com/ApeWorX" target="_blank" rel="noreferrer">GitHub</a></li>
+          <li><a href="https://discord.gg/apeworx" target="_blank" rel="noreferrer">Discord</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; 2024 ApeWorX LTD. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu is handled by assets/mobile-menu.js
+  </script>
+</body>
+</html>
+

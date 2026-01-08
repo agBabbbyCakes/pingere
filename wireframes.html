@@ -5,25 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Wireframe Templates - Ape Design System</title>
   <link rel="stylesheet" href="assets/ape-design.css">
+  <script src="assets/mobile-menu.js" defer></script>
 </head>
 <body data-theme="cyan">
+  <div class="grid-overlay"></div>
   <header>
     <nav>
       <a href="index.html" class="brand">APE DESIGN</a>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">☰</button>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="mobileMenuToggle">☰</button>
       <div class="links" id="navLinks">
         <a href="index.html">Home</a>
-        <a href="wireframes.html">Wireframes</a>
+        <a href="wireframes.html" class="accent">Wireframes</a>
+        <a href="marketing-website/index.html">Marketing Site</a>
         <a href="docs.html">Docs</a>
+      </div>
+      <div class="theme-switcher">
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="themeButton">
+            <span id="themeButtonText">Professional Blue</span>
+          </button>
+          <div class="theme-dropdown-menu" id="themeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Professional Blue</span>
+                <span class="theme-option-desc">B2B & Enterprise</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Premium Emerald</span>
+                <span class="theme-option-desc">Fintech & Growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu-panel" id="mobileMenuPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand">APE DESIGN</a>
+      <button class="mobile-menu-close" aria-label="Close menu" id="mobileMenuClose">×</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="wireframes.html" class="accent">Wireframes</a>
+        <a href="marketing-website/index.html">Marketing Site</a>
+        <a href="docs.html">Docs</a>
+      </nav>
+      <div class="theme-switcher">
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="mobileThemeButton">
+            <span id="mobileThemeButtonText">Professional Blue</span>
+          </button>
+          <div class="theme-dropdown-menu" id="mobileThemeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Professional Blue</span>
+                <span class="theme-option-desc">B2B & Enterprise</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Premium Emerald</span>
+                <span class="theme-option-desc">Fintech & Growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main>
     <section class="hero">
       <h1>Wireframe Templates</h1>
       <p class="hero-text">
-        12 common website wireframe patterns built with the Ape Design System.
+        15 common website wireframe patterns built with the Ape Design System.
         Copy and customize these templates for your projects.
       </p>
     </section>
@@ -634,6 +702,140 @@ app.init();</code></pre>
         </section>
       </div>
     </section>
+
+    <!-- 13. Product Showcase (Marketing Style) -->
+    <section class="wireframe-section">
+      <div class="container">
+        <div class="wireframe-label">13. Product Showcase (Marketing Style)</div>
+        <section>
+          <div class="container">
+            <h2>Build with Our Tools</h2>
+            <p>Two powerful solutions for modern developers.</p>
+            
+            <div class="grid">
+              <article>
+                <h3>Product One</h3>
+                <p>Product description and key features. Explain what makes this product unique and valuable to users.</p>
+                <footer>
+                  <a href="#" role="button">Get Started</a>
+                  <a href="#" role="button" class="outline">Read the Docs</a>
+                  <a href="#" role="button" class="outline">Download</a>
+                </footer>
+              </article>
+
+              <article>
+                <h3>Product Two</h3>
+                <p>Another product description highlighting different capabilities and use cases for developers.</p>
+                <footer>
+                  <a href="#" role="button">Get Started</a>
+                  <a href="#" role="button" class="outline">View on GitHub</a>
+                  <a href="#" role="button" class="outline">Download</a>
+                </footer>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- 14. Ecosystem Grid (Marketing Style) -->
+    <section class="wireframe-section">
+      <div class="container">
+        <div class="wireframe-label">14. Ecosystem Grid (Marketing Style)</div>
+        <section class="secondary">
+          <div class="grid-overlay"></div>
+          <div class="container">
+            <h2>Our Ecosystem</h2>
+            <p>Explore live tools and what we're building next.</p>
+            
+            <div class="grid compact">
+              <article>
+                <h4>Tool Name</h4>
+                <p class="text-sm muted">Brief description of the tool</p>
+              </article>
+              <article>
+                <h4>Another Tool</h4>
+                <p class="text-sm muted">What this tool does</p>
+              </article>
+              <article>
+                <h4>Third Tool</h4>
+                <p class="text-sm muted">Tool description here</p>
+              </article>
+              <article>
+                <h4>Fourth Tool</h4>
+                <p class="text-sm muted">Another tool description</p>
+              </article>
+              <article>
+                <h4>Fifth Tool</h4>
+                <p class="text-sm muted">More tool information</p>
+              </article>
+              <article>
+                <h4>Sixth Tool</h4>
+                <p class="text-sm muted">Final tool description</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- 15. Community Testimonials (Marketing Style) -->
+    <section class="wireframe-section">
+      <div class="container">
+        <div class="wireframe-label">15. Community Testimonials (Marketing Style)</div>
+        <section>
+          <div class="container">
+            <h2>Built by the community, for the community.</h2>
+            <p>Open-source collaborators, researchers, and engineers building together.</p>
+            
+            <div class="grid">
+              <article>
+                <div class="flex gap-md mb-md">
+                  <div class="bg-card rounded-full w-12 h-12 flex center">
+                    <span class="muted text-xs">AV</span>
+                  </div>
+                  <div>
+                    <h4 class="mt-0 mb-xs">Developer Name</h4>
+                    <p class="text-sm muted mb-0">@handle</p>
+                  </div>
+                </div>
+                <p>"This product changed my workflow completely! Highly recommend."</p>
+              </article>
+
+              <article>
+                <div class="flex gap-md mb-md">
+                  <div class="bg-card rounded-full w-12 h-12 flex center">
+                    <span class="muted text-xs">AV</span>
+                  </div>
+                  <div>
+                    <h4 class="mt-0 mb-xs">Researcher Name</h4>
+                    <p class="text-sm muted mb-0">@handle</p>
+                  </div>
+                </div>
+                <p>"Made it simple to build complex data pipelines. Excellent tooling."</p>
+              </article>
+
+              <article>
+                <div class="flex gap-md mb-md">
+                  <div class="bg-card rounded-full w-12 h-12 flex center">
+                    <span class="muted text-xs">AV</span>
+                  </div>
+                  <div>
+                    <h4 class="mt-0 mb-xs">Engineer Name</h4>
+                    <p class="text-sm muted mb-0">@handle</p>
+                  </div>
+                </div>
+                <p>"Clean, Pythonic, and production-ready. Exactly what we needed."</p>
+              </article>
+            </div>
+
+            <div class="text-center mt-xl">
+              <a href="#" role="button">Join Community</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -664,22 +866,72 @@ app.init();</code></pre>
   </footer>
 
   <script>
-    // Mobile menu toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
+    // Make themeNames available globally for mobile menu
+    window.themeNames = {
+      cyan: 'Professional Blue',
+      green: 'Premium Emerald'
+    };
     
-    if (mobileMenuToggle && navLinks) {
-      mobileMenuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
+    // Theme Switcher Dropdown
+    const themeButton = document.getElementById('themeButton');
+    const themeMenu = document.getElementById('themeMenu');
+    const themeButtonText = document.getElementById('themeButtonText');
+    
+    if (themeButton && themeMenu && themeButtonText) {
+      // Toggle dropdown
+      themeButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        themeMenu.classList.toggle('open');
+        themeButton.classList.toggle('open');
       });
       
-      // Close menu when clicking a link
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('mobile-open');
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!themeButton.contains(e.target) && !themeMenu.contains(e.target)) {
+          themeMenu.classList.remove('open');
+          themeButton.classList.remove('open');
+        }
+      });
+      
+      // Theme selection
+      document.querySelectorAll('#themeMenu .theme-option').forEach(option => {
+        option.addEventListener('click', () => {
+          const theme = option.getAttribute('data-theme');
+          document.body.setAttribute('data-theme', theme);
+          
+          // Update button text
+          themeButtonText.textContent = themeNames[theme];
+          
+          // Update active state
+          document.querySelectorAll('#themeMenu .theme-option').forEach(opt => {
+            opt.classList.remove('active');
+          });
+          option.classList.add('active');
+          
+          // Close dropdown
+          themeMenu.classList.remove('open');
+          themeButton.classList.remove('open');
+          
+          // Save to localStorage
+          localStorage.setItem('ape-theme', theme);
         });
       });
+      
+      // Load saved theme
+      const savedTheme = localStorage.getItem('ape-theme');
+      if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+        themeButtonText.textContent = themeNames[savedTheme];
+        document.querySelector(`#themeMenu .theme-option[data-theme="${savedTheme}"]`)?.classList.add('active');
+        document.querySelectorAll('#themeMenu .theme-option').forEach(opt => {
+          if (opt.getAttribute('data-theme') !== savedTheme) {
+            opt.classList.remove('active');
+          }
+        });
+      }
     }
+    
+    // Mobile menu is handled by assets/mobile-menu.js
   </script>
 </body>
 </html>
