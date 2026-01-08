@@ -43,6 +43,7 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
   --glow: 0 0 20px var(--accent-glow);
   --glow-lg: 0 0 40px var(--accent-glow);
+  --glow-subtle: 0 0 10px var(--accent-glow);
   --glow-inner: inset 0 0 20px rgba(0, 255, 255, 0.1);
   
   /* Typography */
@@ -302,7 +303,7 @@ p a {
 
 p a:hover {
   text-decoration: none;
-  text-shadow: 0 0 8px var(--accent-glow);
+  text-shadow: 0 0 4px var(--accent-glow);
 }
 
 code {
@@ -340,7 +341,7 @@ pre code {
 
 pre:hover {
   border-color: var(--glass-accent);
-  box-shadow: var(--shadow-lg), var(--glow);
+  box-shadow: var(--shadow-md), var(--glow-subtle);
 }
 
 section h2 {
@@ -386,7 +387,7 @@ article::before {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05),
     transparent
   );
   transition: left 0.5s;
@@ -395,8 +396,8 @@ article::before {
 article:hover {
   border-color: var(--glass-accent);
   background: var(--glass-hover);
-  box-shadow: var(--shadow-lg), var(--glow);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), var(--glow-subtle);
+  transform: translateY(-1px);
 }
 
 article:hover::before {
@@ -454,7 +455,7 @@ button::before,
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1),
     transparent
   );
   transition: left 0.5s;
@@ -464,8 +465,8 @@ button:hover,
 [role="button"]:hover {
   background: var(--glass-hover);
   border-color: var(--accent);
-  box-shadow: var(--glow), var(--shadow-md);
-  transform: translateY(-1px);
+  box-shadow: var(--glow-subtle), var(--shadow);
+  transform: translateY(-0.5px);
 }
 
 button:hover::before,
@@ -771,6 +772,120 @@ body > footer a:hover {
 .cursor-pointer { cursor: pointer; }
 .cursor-not-allowed { cursor: not-allowed; }
 
+/* Min Width Utilities */
+.min-w-sm { min-width: 12rem; }
+.min-w-md { min-width: 16rem; }
+.min-w-lg { min-width: 20rem; }
+.min-w-xl { min-width: 24rem; }
+
+/* Min Height Utilities */
+.min-h-sm { min-height: 12rem; }
+.min-h-md { min-height: 16rem; }
+.min-h-lg { min-height: 20rem; }
+.min-h-xl { min-height: 24rem; }
+.min-h-2xl { min-height: 32rem; }
+
+/* Aspect Ratio */
+.aspect-square { aspect-ratio: 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+
+/* Placeholder Content */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  background: var(--glass);
+  border: var(--border) var(--glass-border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  width: 100%;
+  transition: all var(--speed);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--glass-accent);
+  box-shadow: var(--glow);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  accent-color: var(--accent);
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sidebar-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  transition: all var(--speed);
+}
+
+.sidebar-nav a:hover {
+  background: var(--glass-hover);
+  color: var(--accent);
+}
+
+/* Wireframe Utilities */
+.wireframe-section {
+  margin: var(--space-4xl) 0;
+  padding: var(--space-2xl) 0;
+  border-top: var(--border) var(--glass-border);
+}
+
+.wireframe-section:first-of-type {
+  border-top: none;
+}
+
+.wireframe-label {
+  position: sticky;
+  top: 80px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: var(--blur);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-xl);
+  display: inline-block;
+  border: var(--border) var(--glass-border);
+  z-index: 10;
+}
+
+/* List Utilities */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 /* ========================================
    RESPONSIVE
    ======================================== */
@@ -826,7 +941,7 @@ body > footer a:hover {
 .theme-dropdown-button:hover {
   border-color: var(--glass-accent);
   background: var(--glass-hover);
-  box-shadow: var(--glow);
+  box-shadow: var(--glow-subtle);
 }
 
 .theme-dropdown-button::after {
