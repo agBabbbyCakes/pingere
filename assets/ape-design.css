@@ -5,27 +5,165 @@
    ======================================== */
 
 /* 
+   DESIGN SYSTEM OVERVIEW
+   ======================
+   This is a comprehensive dark-themed design system optimized for:
+   - Modern SaaS applications
+   - Developer tools and documentation
+   - Enterprise software interfaces
+   - Crypto/Web3 applications
+   
+   KEY PRINCIPLES:
+   - Mobile-first responsive design (breakpoint: 768px)
+   - Glassmorphism aesthetic with backdrop blur
+   - Semantic HTML with utility classes
+   - CSS Custom Properties for theming
+   - Touch-optimized (minimum 44x44px targets)
+   
+   USAGE PATTERNS:
+   - Components: Use semantic HTML elements (button, article, nav, etc.)
+   - Utilities: Add utility classes for spacing, layout, typography
+   - Themes: Set data-theme="cyan" or data-theme="green" on html/body
+   - Responsive: Mobile styles are default, desktop overrides at 768px+
+   
+   QUICK REFERENCE - KEY COMPONENTS:
+   =================================
+   
+   1. BUTTONS:
+      <button>Click</button>                    // Full width mobile, auto desktop
+      <button class="outline">Outline</button>  // Transparent variant
+      <button class="sm">Small</button>         // Small size
+      <button class="lg">Large</button>         // Large size
+   
+   2. CARDS:
+      <article>
+        <h3>Title</h3>
+        <p>Content</p>
+      </article>                                // Auto glass card styling
+   
+   3. GRID LAYOUTS:
+      <div class="grid">
+        <article>Card 1</article>
+        <article>Card 2</article>
+      </div>                                    // Responsive auto-fit grid
+   
+   4. SECTIONS:
+      <section>...</section>                    // Standard section
+      <section class="secondary">...</section>   // Alternate background
+      <section class="hero">...</section>       // Hero section
+   
+   5. NAVIGATION:
+      <nav>
+        <a href="#" class="brand">Logo</a>
+        <div class="links">
+          <a href="#">Link</a>
+        </div>
+      </nav>                                    // Auto mobile menu at <768px
+   
+   6. TYPOGRAPHY:
+      <h1>Heading 1</h1>                        // Auto-styled with glow
+      <h2>Heading 2</h2>                        // Section headings
+      <p>Body text</p>                          // Auto-styled paragraphs
+      <code>code</code>                         // Inline code
+      <pre><code>Block code</code></pre>      // Code blocks
+   
+   7. UTILITIES (Common):
+      .flex .center .gap-lg                    // Flexbox layout
+      .p-xl .mt-lg .mb-2xl                     // Spacing
+      .text-center .accent .muted               // Text styling
+      .w-full .max-w-lg                        // Width
+      .rounded .border                          // Borders
+   
+   8. FORM INPUTS:
+      <input type="text" placeholder="...">    // Auto-styled inputs
+      <textarea>...</textarea>                  // Auto-styled textarea
+   
+   9. THEME SWITCHER:
+      <div class="theme-switcher">
+        <button class="theme-dropdown-button">Theme</button>
+        <div class="theme-dropdown-menu">
+          <div class="theme-option" data-theme="cyan">Cyan</div>
+          <div class="theme-option" data-theme="green">Green</div>
+        </div>
+      </div>
+   
+   10. CODE COMPONENTS:
+       <div class="code-snippet">
+         <div class="code-snippet-header">Title</div>
+         <div class="code-snippet-content">Code here</div>
+       </div>
+   
+   RESPONSIVE BREAKPOINTS:
+   =======================
+   - Mobile: < 768px (default, full-width buttons, stacked layouts)
+   - Desktop: >= 768px (auto-width buttons, horizontal layouts)
+   - Small Mobile: < 480px (additional size reductions)
+   
+   COMPONENT STRUCTURE PATTERNS:
+   =============================
+   AI assistants should recognize these patterns when generating HTML:
+   
+   1. SEMANTIC HTML FIRST:
+      - Use semantic elements: <button>, <article>, <nav>, <section>
+      - Components auto-style based on element type
+      - Add utility classes for variations
+   
+   2. MOBILE-FIRST APPROACH:
+      - Default styles are for mobile (< 768px)
+      - Desktop styles override at 768px+
+      - Buttons: full-width mobile → auto-width desktop
+      - Grids: single column mobile → multi-column desktop
+   
+   3. UTILITY CLASS COMBINATIONS:
+      - Spacing: Combine .p-*, .m-*, .gap-* for layout
+      - Flexbox: Use .flex with .center, .between, .gap-*
+      - Typography: Combine .text-* with .accent, .muted
+      - Width: Use .w-full for mobile, .w-auto for desktop
+   
+   4. COMPONENT VARIATIONS:
+      - Buttons: Add .outline, .sm, .lg, .auto, .full
+      - Cards: Use <article> with optional <small> and <footer>
+      - Sections: Add .secondary or .hero classes
+      - Grids: Add .compact for smaller cards
+   
+   5. THEME INTEGRATION:
+      - Set data-theme on <html> or <body>
+      - All components automatically use theme colors
+      - No need to add theme-specific classes
+   
+   6. ACCESSIBILITY:
+      - Touch targets minimum 44x44px
+      - Use semantic HTML for screen readers
+      - Maintain color contrast ratios
+      - Include ARIA labels where needed
+   
    TABLE OF CONTENTS
    =================
-   1. ROOT VARIABLES - CSS Custom Properties
-   2. THEMES - Theme-specific variable overrides
-   3. BASE STYLES - Reset, body, typography
-   4. LAYOUT - Header, main, footer, containers
-   5. NAVIGATION - Nav, links, brand
-   6. TYPOGRAPHY - Headings, paragraphs, code
-   7. GLASS CARDS - Article styling
-   8. BUTTONS - Button components
-   9. GRID LAYOUTS - Grid utilities
-   10. SECTIONS - Hero, secondary sections
-   11. FOOTER - Footer styling
-   12. MOBILE MENU - Mobile navigation system
-   13. UTILITY CLASSES - Spacing, display, text, theme colors, variable demos
-   13. FORM INPUTS - Input fields, textareas
-   14. SIDEBAR NAVIGATION - Sidebar nav styling
-   15. WIREFRAME UTILITIES - Wireframe-specific classes
-   16. RESPONSIVE - Mobile optimizations
-   17. THEME SWITCHER - Theme dropdown component
-   18. WALLET COMPONENTS - Wallet-specific styling
+   1. ROOT VARIABLES - CSS Custom Properties (lines 38-138)
+   2. THEMES - Theme-specific variable overrides (lines 144-180)
+   3. BASE STYLES - Reset, body, typography (lines 186-262)
+   4. LAYOUT - Header, main, footer, containers (lines 268-285)
+   5. NAVIGATION - Nav, links, brand (lines 291-346)
+   6. MOBILE MENU - Mobile navigation system (lines 352-480)
+   7. UTILITY CLASSES - Base utilities (lines 487-574)
+   8. TYPOGRAPHY - Headings, paragraphs, code (lines 580-738)
+   9. GLASS CARDS - Article styling (lines 744-817)
+   10. BUTTONS - Button components (mobile-first) (lines 823-1016)
+   11. GRID LAYOUTS - Grid utilities (lines 1022-1051)
+   12. SECTIONS - Hero, secondary sections (lines 1057-1110)
+   13. FOOTER - Footer styling (lines 1189-1243)
+   14. UTILITY CLASSES - Comprehensive utilities (lines 1249-1407)
+   15. FORM INPUTS - Input fields, textareas (lines 1409-1455)
+   16. SIDEBAR NAVIGATION - Sidebar nav styling (lines 1457-1478)
+   17. WIREFRAME UTILITIES - Wireframe-specific classes (lines 1480-1551)
+   18. RESPONSIVE - Mobile optimizations (lines 1567-1923)
+   19. THEME SWITCHER - Theme dropdown component (lines 1929-2053)
+   20. WALLET COMPONENTS - Wallet-specific styling (lines 2059-2195)
+   21. CODE SNIPPET COMPONENT - Code display component (lines 2201-2544)
+   22. CODE VIEWER COMPONENT - Full-featured code viewer (lines 2550-2699)
+   23. MODAL COMPONENTS - Modal overlays and dialogs (lines 2702-2768)
+   24. UI COMPONENTS - Tooltips, accordions, tabs (lines 2771-2912)
+   25. ANIMATIONS - Animation utilities (lines 2915-2943)
 */
 
 /* Import Distinctive Google Fonts */
@@ -34,100 +172,169 @@
 /* ========================================
    ROOT VARIABLES - Fully Customizable
    ======================================== */
+/* 
+   VARIABLE USAGE GUIDE:
+   - All variables use CSS custom properties (--variable-name)
+   - Variables are organized by category: Colors, Glass, Borders, etc.
+   - Use var(--variable-name) to reference in CSS
+   - Theme overrides are defined in [data-theme] selectors below
+   - Mobile breakpoint: 768px (mobile-first approach)
+*/
 
 :root {
-  /* Colors */
-  --bg: #000000;
-  --bg-2: #0a0a0f;
-  --bg-3: #151520;
-  --text: #ffffff;
-  --text-2: #e5e7eb;
-  --text-muted: #9ca3af;
-  --text-dim: #6b7280;
+  /* 
+     COLOR SYSTEM
+     ============
+     Background hierarchy: --bg (darkest) → --bg-2 → --bg-3 (lightest)
+     Text hierarchy: --text (primary) → --text-2 → --text-muted → --text-dim
+     Usage: Use --bg for main background, --bg-2/--bg-3 for elevated surfaces
+  */
+  --bg: #000000;              /* Primary background - darkest */
+  --bg-2: #0a0a0f;            /* Secondary background - slightly lighter */
+  --bg-3: #151520;            /* Tertiary background - elevated surfaces */
+  --text: #ffffff;            /* Primary text color - highest contrast */
+  --text-2: #e5e7eb;          /* Secondary text - body content */
+  --text-muted: #9ca3af;      /* Muted text - labels, captions */
+  --text-dim: #6b7280;        /* Dim text - disabled states, subtle info */
   
-  /* Accents */
-  --accent: #00ffff;
-  --accent-2: #00ff88;
-  --accent-3: #ff00ff;
-  --accent-glow: rgba(0, 255, 255, 0.5);
+  /* 
+     ACCENT COLORS
+     =============
+     Primary accent: --accent (main brand color, links, highlights)
+     Secondary: --accent-2 (complementary actions)
+     Tertiary: --accent-3 (special emphasis)
+     Glow: --accent-glow (used in shadows and effects)
+  */
+  --accent: #00ffff;          /* Primary accent - buttons, links, highlights */
+  --accent-2: #00ff88;        /* Secondary accent - complementary actions */
+  --accent-3: #ff00ff;        /* Tertiary accent - special emphasis */
+  --accent-glow: rgba(0, 255, 255, 0.5);  /* Glow effect for shadows */
   
-  /* Glass */
-  --glass: rgba(255, 255, 255, 0.02);
-  --glass-hover: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-accent: rgba(0, 255, 255, 0.3);
-  --blur: blur(20px);
-  --blur-lg: blur(40px);
-  --blur-strong: blur(60px);
+  /* 
+     GLASSMORPHISM SYSTEM
+     ====================
+     Glass backgrounds: --glass (default) → --glass-hover (interactive)
+     Borders: --glass-border (standard) → --glass-accent (highlighted)
+     Blur levels: --blur (standard) → --blur-lg (medium) → --blur-strong (heavy)
+     Usage: Apply to cards, modals, overlays for glassmorphism effect
+  */
+  --glass: rgba(255, 255, 255, 0.02);           /* Default glass background */
+  --glass-hover: rgba(255, 255, 255, 0.03);     /* Hover state glass */
+  --glass-border: rgba(255, 255, 255, 0.08);    /* Standard glass border */
+  --glass-accent: rgba(0, 255, 255, 0.3);       /* Accent glass border */
+  --blur: blur(20px);                            /* Standard backdrop blur */
+  --blur-lg: blur(40px);                         /* Large backdrop blur */
+  --blur-strong: blur(60px);                     /* Strong backdrop blur */
   
-  /* Borders */
-  --border: 1px solid;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --radius-lg: 16px;
+  /* 
+     BORDERS & RADIUS
+     ================
+     Border: Use with color variables (e.g., border: var(--border) var(--glass-border))
+     Radius: --radius-sm (small) → --radius (default) → --radius-lg (large)
+  */
+  --border: 1px solid;        /* Border width and style - combine with color */
+  --radius: 12px;              /* Default border radius - cards, buttons */
+  --radius-sm: 8px;            /* Small radius - badges, small elements */
+  --radius-lg: 16px;           /* Large radius - modals, large cards */
   
-  /* Shadows */
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --glow: 0 0 20px var(--accent-glow);
-  --glow-lg: 0 0 40px var(--accent-glow);
-  --glow-subtle: 0 0 10px var(--accent-glow);
-  --glow-inner: inset 0 0 20px rgba(0, 255, 255, 0.1);
+  /* 
+     SHADOWS & GLOWS
+     ===============
+     Shadows: --shadow (subtle) → --shadow-md (medium) → --shadow-lg (large)
+     Glows: --glow-subtle (minimal) → --glow (standard) → --glow-lg (strong)
+     Usage: Apply to elevated elements, buttons, cards
+  */
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);                    /* Subtle shadow */
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);                /* Medium shadow */
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);                /* Large shadow */
+  --glow: 0 0 20px var(--accent-glow);                        /* Standard glow */
+  --glow-lg: 0 0 40px var(--accent-glow);                     /* Large glow */
+  --glow-subtle: 0 0 10px var(--accent-glow);                /* Subtle glow */
+  --glow-inner: inset 0 0 20px rgba(0, 255, 255, 0.1);       /* Inner glow */
   
-  /* Typography - System Fonts (matching original marketing site) */
-  --font: 'JetBrains Mono', 'Courier New', monospace;
-  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --size-xs: 0.75rem;      /* 12px */
-  --size-sm: 0.875rem;     /* 14px */
-  --size: 1rem;            /* 16px - base */
-  --size-lg: 1.125rem;     /* 18px */
-  --size-xl: 1.25rem;       /* 20px */
-  --size-2xl: 1.5rem;      /* 24px */
-  --size-3xl: 1.875rem;    /* 30px */
-  --size-4xl: 2.25rem;     /* 36px */
-  --size-5xl: 3rem;        /* 48px */
-  --size-6xl: 3.75rem;     /* 60px */
-  --weight-light: 300;
-  --weight: 400;
-  --weight-md: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
-  --line: 1.75;            /* Improved readability for body */
-  --line-relaxed: 1.9;     /* For longer content */
-  --line-tight: 1.3;       /* For headings */
-  --line-compact: 1.5;      /* For UI elements */
-  --letter-tight: -0.025em;
-  --letter-normal: 0;
-  --letter-wide: 0.025em;
-  --letter-wider: 0.05em;
+  /* 
+     TYPOGRAPHY SYSTEM
+     =================
+     Fonts: --font (monospace) for code, --font-body for content, --font-heading for titles
+     Sizes: --size-xs (12px) → --size (16px base) → --size-6xl (60px)
+     Weights: --weight-light (300) → --weight (400) → --weight-bold (700)
+     Line heights: --line-tight (headings) → --line (body) → --line-relaxed (long content)
+     Usage: Use semantic sizes, weights match content hierarchy
+  */
+  --font: 'JetBrains Mono', 'Courier New', monospace;  /* Monospace - code, technical */
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;  /* Body text */
+  --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;  /* Headings */
+  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;  /* Display text */
+  --size-xs: 0.75rem;      /* 12px - captions, labels */
+  --size-sm: 0.875rem;     /* 14px - small text, metadata */
+  --size: 1rem;            /* 16px - base body text */
+  --size-lg: 1.125rem;     /* 18px - emphasized body */
+  --size-xl: 1.25rem;      /* 20px - large body, h4 */
+  --size-2xl: 1.5rem;      /* 24px - h3 */
+  --size-3xl: 1.875rem;    /* 30px - h2 */
+  --size-4xl: 2.25rem;     /* 36px - large h2 */
+  --size-5xl: 3rem;        /* 48px - h1 */
+  --size-6xl: 3.75rem;     /* 60px - hero h1 */
+  --weight-light: 300;     /* Light weight - subtle text */
+  --weight: 400;           /* Normal weight - body text */
+  --weight-md: 500;        /* Medium weight - emphasized text */
+  --weight-semibold: 600;  /* Semibold - subheadings */
+  --weight-bold: 700;      /* Bold - headings, emphasis */
+  --line: 1.75;            /* Body line height - improved readability */
+  --line-relaxed: 1.9;     /* Relaxed - long-form content */
+  --line-tight: 1.3;       /* Tight - headings */
+  --line-compact: 1.5;     /* Compact - UI elements, buttons */
+  --letter-tight: -0.025em;  /* Tight letter spacing - headings */
+  --letter-normal: 0;        /* Normal letter spacing - body */
+  --letter-wide: 0.025em;    /* Wide - uppercase text */
+  --letter-wider: 0.05em;    /* Wider - labels, badges */
   
-  /* Spacing - Refined 8px base scale */
-  --space-xs: 0.25rem;     /* 4px */
-  --space-sm: 0.5rem;      /* 8px */
-  --space-md: 0.75rem;     /* 12px */
-  --space: 1rem;           /* 16px - base */
-  --space-lg: 1.5rem;      /* 24px */
-  --space-xl: 2rem;        /* 32px */
-  --space-2xl: 2.5rem;     /* 40px */
-  --space-3xl: 3rem;       /* 48px */
-  --space-4xl: 4rem;       /* 64px */
-  --space-5xl: 6rem;       /* 96px */
-  --space-6xl: 8rem;       /* 128px */
+  /* 
+     SPACING SYSTEM (8px base scale)
+     ===============================
+     Scale: --space-xs (4px) → --space (16px base) → --space-6xl (128px)
+     Usage: Use for padding, margin, gap properties
+     Pattern: xs, sm, md, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl
+  */
+  --space-xs: 0.25rem;     /* 4px - tight spacing */
+  --space-sm: 0.5rem;      /* 8px - small spacing */
+  --space-md: 0.75rem;     /* 12px - medium spacing */
+  --space: 1rem;           /* 16px - base spacing unit */
+  --space-lg: 1.5rem;      /* 24px - large spacing */
+  --space-xl: 2rem;        /* 32px - extra large */
+  --space-2xl: 2.5rem;     /* 40px - 2x large */
+  --space-3xl: 3rem;       /* 48px - 3x large */
+  --space-4xl: 4rem;       /* 64px - 4x large */
+  --space-5xl: 6rem;       /* 96px - 5x large */
+  --space-6xl: 8rem;       /* 128px - 6x large */
   
-  /* Layout */
-  --width: 1200px;
-  --padding: var(--space-xl);
-  --section-pad: var(--space-4xl) 0;
+  /* 
+     LAYOUT CONSTANTS
+     ================
+     Width: Maximum content width for containers
+     Padding: Standard padding for sections
+     Section padding: Vertical padding for sections
+  */
+  --width: 1200px;              /* Maximum content width */
+  --padding: var(--space-xl);   /* Standard section padding (32px) */
+  --section-pad: var(--space-4xl) 0;  /* Vertical section padding */
   
-  /* Speed */
-  --fast: 0.08s ease;
-  --speed: 0.12s ease;
-  --slow: 0.15s ease;
+  /* 
+     TRANSITIONS
+     ===========
+     Speed variants for different interaction types
+     Usage: transition: property var(--speed);
+  */
+  --fast: 0.08s ease;      /* Fast transitions - hover effects */
+  --speed: 0.12s ease;     /* Standard transitions - default */
+  --slow: 0.15s ease;       /* Slow transitions - complex animations */
   
-  /* CRT */
+  /* 
+     CRT EFFECT
+     ==========
+     Scanline pattern for retro/tech aesthetic
+     Usage: Applied to body::before for subtle scanline overlay
+  */
   --scanline: repeating-linear-gradient(
     0deg,
     rgba(0, 0, 0, 0.15),
@@ -140,10 +347,31 @@
 /* ========================================
    THEMES - Two Professional Options
    ======================================== */
+/* 
+   THEMING SYSTEM:
+   ===============
+   Usage: Set data-theme attribute on <html> or <body> element
+   Example: <html data-theme="cyan"> or <body data-theme="green">
+   
+   Available Themes:
+   - "cyan": Professional blue (default) - B2B, enterprise, developer tools
+   - "green": Premium emerald - Fintech, crypto, growth products
+   
+   Theme Overrides:
+   - Accent colors (--accent, --accent-2, --accent-3)
+   - Accent glow effects (--accent-glow, --glass-accent)
+   - Backgrounds remain consistent (dark theme)
+   - Text colors remain consistent
+   
+   Implementation:
+   Themes override CSS variables defined in :root
+   All components automatically use theme colors via CSS variables
+*/
 
 /* THEME 1: PROFESSIONAL BLUE (Default)
    Modern SaaS aesthetic - clean, trustworthy, enterprise-ready
-   Perfect for: B2B products, developer tools, enterprise software */
+   Perfect for: B2B products, developer tools, enterprise software
+   Usage: <html data-theme="cyan"> */
 [data-theme="cyan"] {
   --accent: #3b82f6;
   --accent-2: #60a5fa;
@@ -483,18 +711,42 @@ nav .links {
    UTILITY CLASSES
    CDN-Ready: All utilities consolidated in one file
    ======================================== */
+/* 
+   UTILITY CLASS SYSTEM:
+   =====================
+   Naming Pattern: {property}-{value} (e.g., .p-lg, .mt-xl, .text-center)
+   Responsive: Mobile-first, desktop overrides at 768px+
+   Usage: Combine multiple utilities for rapid styling
+   
+   CATEGORIES:
+   - Spacing: .p-*, .m-*, .mt-*, .mb-*, .gap-*
+   - Display: .flex, .grid, .block, .hidden
+   - Flexbox: .flex-col, .center, .between, .justify-center
+   - Typography: .text-center, .accent, .muted, .text-*, .bold
+   - Width: .w-full, .w-auto, .max-w-*
+   - Borders: .border, .border-accent, .rounded-*
+   - Background: .bg-secondary, .bg-card
+   - Position: .sticky, .relative, .absolute, .fixed
+   - Overflow: .overflow-hidden, .overflow-auto
+   - Cursor: .cursor-pointer, .cursor-not-allowed
+   
+   EXAMPLES:
+   <div class="flex center gap-lg p-xl">        // Flex container, centered, large gap, xl padding
+   <p class="text-center muted text-lg">       // Centered, muted color, large text
+   <button class="w-full mt-lg rounded">       // Full width, top margin, rounded
+*/
 
-/* Theme Color Utilities */
+/* Theme Color Utilities - Direct color references for theme colors */
 .theme-color-cyan {
-  color: #3b82f6;
+  color: #3b82f6;  /* Cyan theme accent color */
 }
 
 .theme-color-green {
-  color: #10b981;
+  color: #10b981;  /* Green theme accent color */
 }
 
 .theme-color-emerald {
-  color: #10b981;
+  color: #10b981;  /* Emerald theme accent color (alias) */
 }
 
 /* Margin Utilities */
@@ -740,6 +992,33 @@ section h2 + p {
 /* ========================================
    GLASS CARDS (Articles)
    ======================================== */
+/* 
+   GLASS CARD COMPONENT:
+   =====================
+   Element: Use <article> tag for automatic glass card styling
+   Features: Glassmorphism background, hover effects, animations
+   Usage: Content cards, feature boxes, information panels
+   
+   STRUCTURE:
+   <article>
+     <small>Metadata</small>        // Optional: Date, category, etc.
+     <h3>Title</h3>
+     <p>Content...</p>
+     <footer>Footer content</footer>  // Optional: Actions, links
+   </article>
+   
+   STYLING:
+   - Automatic glass background and border
+   - Hover: Border accent color, background brightens
+   - Animation: Fade-in on load with stagger delay
+   - Footer: Auto-margin-top, border-top separator
+   
+   EXAMPLES:
+   <article>
+     <h3>Card Title</h3>
+     <p>Card content goes here.</p>
+   </article>
+*/
 
 article {
   background: var(--glass);
@@ -819,6 +1098,36 @@ article footer {
 /* ========================================
    BUTTONS - MOBILE FIRST
    ======================================== */
+/* 
+   BUTTON COMPONENT GUIDE:
+   ======================
+   Base: Use <button> or [role="button"] elements
+   Mobile-first: Buttons are full-width by default (mobile)
+   Desktop: Auto-width at 768px+ breakpoint
+   Touch targets: Minimum 44x44px for accessibility
+   
+   VARIANTS:
+   - Default: Standard glass button with accent border
+   - .outline: Transparent background, border only
+   - .auto: Auto width (desktop default)
+   - .full: Full width (mobile default)
+   - .sm: Small size (36px height)
+   - .lg: Large size (52px height)
+   - .block: Full width display
+   - .inline: Inline-flex display
+   
+   USAGE EXAMPLES:
+   <button>Click me</button>                    // Full width on mobile, auto on desktop
+   <button class="outline">Outline</button>     // Transparent with border
+   <button class="sm">Small</button>            // Small size variant
+   <button class="lg">Large</button>            // Large size variant
+   
+   BUTTON GROUPS:
+   - .btn-group: Container for multiple buttons
+   - Mobile: Stacks vertically
+   - Desktop (768px+): Horizontal layout
+   - .btn-group.equal: Equal width buttons
+*/
 
 /* Mobile-first: Full width, stacked, optimized for touch */
 button,
@@ -1018,6 +1327,30 @@ button.inline,
 /* ========================================
    GRID LAYOUTS
    ======================================== */
+/* 
+   GRID SYSTEM:
+   =============
+   Class: .grid - Responsive auto-fit grid
+   Mobile: Single column (1fr)
+   Desktop: Auto-fit columns (min 300px each)
+   Gap: Standard spacing between items
+   
+   VARIANTS:
+   - .grid: Default grid (min 300px columns)
+   - .grid.compact: Compact grid (min 150px columns)
+   
+   USAGE:
+   <div class="grid">
+     <article>Card 1</article>
+     <article>Card 2</article>
+     <article>Card 3</article>
+   </div>
+   
+   FEATURES:
+   - Automatic responsive columns
+   - Staggered fade-in animations
+   - Consistent spacing
+*/
 
 .grid {
   display: grid;
@@ -1053,6 +1386,34 @@ button.inline,
 /* ========================================
    SECTIONS
    ======================================== */
+/* 
+   SECTION COMPONENTS:
+   ===================
+   Default: <section> - Standard section with auto padding
+   Variant: .secondary - Alternate background with glass effect
+   Hero: .hero - Full-width hero section with special styling
+   
+   SECTION VARIANTS:
+   - <section>: Standard section (default padding, centered content)
+   - <section class="secondary">: Alternate background with glass overlay
+   - <section class="hero">: Hero section with gradient background
+   
+   USAGE:
+   <section>
+     <h2>Section Title</h2>
+     <p>Section content...</p>
+   </section>
+   
+   <section class="secondary">
+     <h2>Alternate Section</h2>
+     <p>Content with glass background...</p>
+   </section>
+   
+   <section class="hero">
+     <h1>Hero Title</h1>
+     <p class="hero-text">Hero description...</p>
+   </section>
+*/
 
 section.secondary {
   background: 
@@ -1563,6 +1924,30 @@ ul {
 /* ========================================
    MOBILE OPTIMIZATIONS
    ======================================== */
+/* 
+   RESPONSIVE DESIGN SYSTEM:
+   =========================
+   Approach: Mobile-first (default styles are for mobile)
+   Breakpoint: 768px (desktop starts here)
+   Strategy: Mobile styles are default, desktop overrides at 768px+
+   
+   KEY PATTERNS:
+   - Buttons: Full width on mobile → Auto width on desktop
+   - Grid: Single column on mobile → Multi-column on desktop
+   - Navigation: Hamburger menu on mobile → Horizontal nav on desktop
+   - Typography: Smaller sizes on mobile → Larger on desktop
+   - Spacing: Reduced padding/margins on mobile → Full spacing on desktop
+   
+   BREAKPOINTS:
+   - Mobile: < 768px (default styles)
+   - Desktop: >= 768px (media query overrides)
+   - Small mobile: < 480px (additional optimizations)
+   
+   TOUCH OPTIMIZATIONS:
+   - Minimum touch target: 44x44px
+   - Larger padding on mobile inputs (prevents iOS zoom)
+   - Stacked layouts for better thumb reach
+*/
 
 /* Touch targets - minimum 44x44px */
 button,
