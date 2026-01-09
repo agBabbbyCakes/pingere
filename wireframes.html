@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Wireframe Templates - Ape Design System</title>
   <link rel="stylesheet" href="assets/ape-design.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="assets/mobile-menu.js" defer></script>
+  <script src="assets/additional-tricks.js" defer></script>
 </head>
 <body data-theme="cyan">
   <div class="grid-overlay"></div>
@@ -87,7 +89,7 @@
     </div>
   </div>
 
-  <main>
+  <main class="wireframes-main">
     <section class="hero">
       <h1>Wireframe Templates</h1>
       <p class="hero-text">
@@ -96,8 +98,303 @@
       </p>
     </section>
 
+    <!-- Navigation Sidebar -->
+    <aside class="wireframe-nav">
+      <article class="bg-secondary rounded p-lg">
+        <h3 class="mb-md">Navigation</h3>
+        <nav class="sidebar-nav">
+          <a href="#python-code-examples">Python Code Examples</a>
+          <a href="#landing-page">1. Landing Page</a>
+          <a href="#dashboard">2. Dashboard</a>
+          <a href="#eth-wallet">3. ETH Wallet</a>
+          <a href="#white-papers">4. White Papers</a>
+          <a href="#contact-form">5. Contact/Form</a>
+          <a href="#portfolio">6. Portfolio</a>
+          <a href="#about-team">7. About/Team</a>
+          <a href="#pricing">8. Pricing</a>
+          <a href="#login-signup">9. Login/Signup</a>
+          <a href="#documentation">10. Documentation</a>
+          <a href="#profile-settings">11. Profile/Settings</a>
+          <a href="#error-page">12. 404/Error</a>
+          <a href="#product-showcase">13. Product Showcase</a>
+          <a href="#ecosystem-grid">14. Ecosystem Grid</a>
+          <a href="#testimonials">15. Testimonials</a>
+        </nav>
+      </article>
+    </aside>
+
+    <!-- Python Code Examples (Moved to Top) -->
+    <section id="python-code-examples" class="wireframe-section">
+      <div class="container">
+        <div class="wireframe-label">Python Code Examples</div>
+        <h2>Interactive Code Snippets</h2>
+        <p>Copy-ready Python code examples styled like modern SaaS documentation (Stripe, Vercel, etc.). Each snippet can be copied with one click.</p>
+        
+        <article>
+          <h3>Getting Started</h3>
+          <p>Install the Ape Framework and start building:</p>
+          
+          <figure class="code-snippet" x-data="codeSnippet('pip install eth-ape', 'bash', 'Terminal')">
+            <div class="code-snippet-header">
+              <span class="code-snippet-title" x-text="title || language"></span>
+              <div class="code-snippet-actions">
+                <button 
+                  class="code-snippet-copy-btn"
+                  :class="{ copied: copied }"
+                  @click="copy()"
+                  x-text="copied ? 'Copied!' : 'Copy'">
+                </button>
+              </div>
+            </div>
+            <div class="code-snippet-body">
+              <pre class="code-snippet-content"><code x-text="code"></code></pre>
+            </div>
+          </figure>
+        </article>
+
+        <article>
+          <h3>Deploy an ERC20 Token</h3>
+          <p>Deploy a token contract with initial supply and metadata:</p>
+          
+          <figure class="code-snippet" x-data="codeSnippet(`from ape import accounts, project
+
+def main():
+    # Load deployer account (requires passphrase)
+    deployer = accounts.load('deployer')
+    
+    # Deploy ERC20 token contract
+    token = project.Token.deploy(
+        'MyToken',           # name
+        'MTK',               # symbol
+        18,                  # decimals
+        1000000 * 10**18,    # initial supply
+        sender=deployer
+    )
+    
+    print(f'Token deployed at: {token.address}')
+    print(f'Total supply: {token.totalSupply() / 10**18} MTK')
+    print(f'Deployer balance: {token.balanceOf(deployer) / 10**18} MTK')`, 'python', 'Python')">
+            <div class="code-snippet-header">
+              <span class="code-snippet-title" x-text="title || language"></span>
+              <div class="code-snippet-actions">
+                <button 
+                  class="code-snippet-copy-btn"
+                  :class="{ copied: copied }"
+                  @click="copy()"
+                  x-text="copied ? 'Copied!' : 'Copy'">
+                </button>
+              </div>
+            </div>
+            <div class="code-snippet-body">
+              <pre class="code-snippet-content"><code x-text="code"></code></pre>
+            </div>
+          </figure>
+        </article>
+
+        <article>
+          <h3>Read Contract State & Call Functions</h3>
+          <p>Interact with deployed contracts - read state and execute transactions:</p>
+          
+          <figure class="code-snippet" x-data="codeSnippet(`from ape import Contract, accounts
+
+def main():
+    # Connect to existing ERC20 contract
+    token_address = '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb'
+    token = Contract(token_address)
+    
+    # Load account from keystore
+    account = accounts.load('my_account')
+    
+    # Read contract state (view functions)
+    name = token.name()
+    symbol = token.symbol()
+    decimals = token.decimals()
+    total_supply = token.totalSupply()
+    balance = token.balanceOf(account)
+    
+    # Execute contract function (write transaction)
+    recipient = '0x8ba1f109551bD432803012645Hac136c22C9e00'
+    amount = 1000 * 10**decimals
+    
+    receipt = token.transfer(recipient, amount, sender=account)
+    
+    print(f'{symbol} ({name})')
+    print(f'Balance: {balance / 10**decimals}')
+    print(f'Transfer tx: {receipt.txn_hash.hex()}')`, 'python', 'Python')">
+            <div class="code-snippet-header">
+              <span class="code-snippet-title" x-text="title || language"></span>
+              <div class="code-snippet-actions">
+                <button 
+                  class="code-snippet-copy-btn"
+                  :class="{ copied: copied }"
+                  @click="copy()"
+                  x-text="copied ? 'Copied!' : 'Copy'">
+                </button>
+              </div>
+            </div>
+            <div class="code-snippet-body">
+              <pre class="code-snippet-content"><code x-text="code"></code></pre>
+            </div>
+          </figure>
+        </article>
+
+        <article>
+          <h3>Connect to Mainnet</h3>
+          <p>Deploy and interact with contracts on Ethereum mainnet:</p>
+          
+          <figure class="code-snippet" x-data="codeSnippet(`from ape import networks, accounts, project
+
+def main():
+    # Connect to Ethereum mainnet via Alchemy
+    with networks.parse_network_choice('ethereum:mainnet:alchemy') as provider:
+        # Load account (must have ETH for gas)
+        deployer = accounts.load('deployer')
+        
+        # Deploy contract to mainnet
+        token = project.Token.deploy(
+            'ProductionToken',
+            'PROD',
+            18,
+            10000000 * 10**18,
+            sender=deployer
+        )
+        
+        # Verify deployment
+        assert token.name() == 'ProductionToken'
+        print(f'Deployed to mainnet: {token.address}')
+        print(f'Block: {provider.get_block('latest').number}')`, 'python', 'Python')">
+            <div class="code-snippet-header">
+              <span class="code-snippet-title" x-text="title || language"></span>
+              <div class="code-snippet-actions">
+                <button 
+                  class="code-snippet-copy-btn"
+                  :class="{ copied: copied }"
+                  @click="copy()"
+                  x-text="copied ? 'Copied!' : 'Copy'">
+                </button>
+              </div>
+            </div>
+            <div class="code-snippet-body">
+              <pre class="code-snippet-content"><code x-text="code"></code></pre>
+            </div>
+          </figure>
+        </article>
+
+        <article>
+          <h3>Test Smart Contracts</h3>
+          <p>Write comprehensive tests using pytest and Ape's testing framework:</p>
+          
+          <figure class="code-snippet" x-data="codeSnippet(`import pytest
+from ape import accounts, project
+from ape.utils import ZERO_ADDRESS
+
+@pytest.fixture
+def deployer(accounts):
+    return accounts[0]
+
+@pytest.fixture
+def user(accounts):
+    return accounts[1]
+
+@pytest.fixture
+def token(deployer, project):
+    return project.Token.deploy(
+        'TestToken',
+        'TTK',
+        18,
+        1000000 * 10**18,
+        sender=deployer
+    )
+
+def test_token_metadata(token):
+    assert token.name() == 'TestToken'
+    assert token.symbol() == 'TTK'
+    assert token.decimals() == 18
+
+def test_initial_supply(token, deployer):
+    expected_supply = 1000000 * 10**18
+    assert token.totalSupply() == expected_supply
+    assert token.balanceOf(deployer) == expected_supply
+
+def test_transfer(token, deployer, user):
+    amount = 1000 * 10**18
+    initial_balance = token.balanceOf(user)
+    
+    token.transfer(user, amount, sender=deployer)
+    
+    assert token.balanceOf(user) == initial_balance + amount
+    assert token.balanceOf(deployer) == token.totalSupply() - amount
+
+def test_transfer_insufficient_balance(token, user):
+    with pytest.raises(Exception):
+        token.transfer(deployer, 1000 * 10**18, sender=user)`, 'python', 'Python')">
+            <div class="code-snippet-header">
+              <span class="code-snippet-title" x-text="title || language"></span>
+              <div class="code-snippet-actions">
+                <button 
+                  class="code-snippet-copy-btn"
+                  :class="{ copied: copied }"
+                  @click="copy()"
+                  x-text="copied ? 'Copied!' : 'Copy'">
+                </button>
+              </div>
+            </div>
+            <div class="code-snippet-body">
+              <pre class="code-snippet-content"><code x-text="code"></code></pre>
+            </div>
+          </figure>
+        </article>
+
+        <article>
+          <h3>Listen to Contract Events</h3>
+          <p>Monitor and react to on-chain events in real-time:</p>
+          
+          <figure class="code-snippet" x-data="codeSnippet(`from ape import Contract, networks
+
+def main():
+    # Connect to contract
+    token = Contract('0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb')
+    
+    # Connect to network
+    with networks.parse_network_choice('ethereum:mainnet:alchemy') as provider:
+        # Get latest block
+        latest_block = provider.get_block('latest')
+        
+        # Filter Transfer events from last 100 blocks
+        start_block = latest_block.number - 100
+        
+        # Query Transfer events
+        transfer_filter = token.Transfer.create_filter(
+            from_block=start_block,
+            to_block='latest'
+        )
+        
+        # Process events
+        for event in transfer_filter.get_new_entries():
+            print(f'Transfer: {event["from"]} -> {event["to"]}')
+            print(f'Amount: {event["value"] / 10**18}')
+            print(f'Block: {event["blockNumber"]}')`, 'python', 'Python')">
+            <div class="code-snippet-header">
+              <span class="code-snippet-title" x-text="title || language"></span>
+              <div class="code-snippet-actions">
+                <button 
+                  class="code-snippet-copy-btn"
+                  :class="{ copied: copied }"
+                  @click="copy()"
+                  x-text="copied ? 'Copied!' : 'Copy'">
+                </button>
+              </div>
+            </div>
+            <div class="code-snippet-body">
+              <pre class="code-snippet-content"><code x-text="code"></code></pre>
+            </div>
+          </figure>
+        </article>
+      </div>
+    </section>
+
     <!-- 1. Landing Page -->
-    <section class="wireframe-section">
+    <section id="landing-page" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">1. Landing Page</div>
         <section class="hero">
@@ -157,7 +454,7 @@
     </section>
 
     <!-- 2. Dashboard -->
-    <section class="wireframe-section">
+    <section id="dashboard" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">2. Dashboard</div>
         <div class="flex">
@@ -284,7 +581,7 @@
     </section>
 
     <!-- 4. White Papers & Company Announcements -->
-    <section class="wireframe-section">
+    <section id="white-papers" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">4. White Papers & Company Announcements</div>
         <div class="flex gap-xl">
@@ -422,7 +719,7 @@
     </section>
 
     <!-- 6. Portfolio/Showcase -->
-    <section class="wireframe-section">
+    <section id="portfolio" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">6. Portfolio/Showcase</div>
         <div class="flex between center mb-xl">
@@ -471,7 +768,7 @@
     </section>
 
     <!-- 7. About/Team Page -->
-    <section class="wireframe-section">
+    <section id="about-team" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">7. About/Team Page</div>
         <section class="hero">
@@ -569,7 +866,7 @@
     </section>
 
     <!-- 9. Login/Signup -->
-    <section class="wireframe-section">
+    <section id="login-signup" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">9. Login/Signup</div>
         <div class="max-w-md m-auto">
@@ -625,6 +922,99 @@
 
 const app = new Component();
 app.init();</code></pre>
+            <h3>Installation</h3>
+            <p>Install the package using pip:</p>
+            <figure class="code-snippet" x-data="codeSnippet('pip install apeworx', 'bash', 'Terminal')">
+              <div class="code-snippet-header">
+                <span class="code-snippet-title" x-text="title || language"></span>
+                <div class="code-snippet-actions">
+                  <button 
+                    class="code-snippet-copy-btn"
+                    :class="{ copied: copied }"
+                    @click="copy()"
+                    x-text="copied ? 'Copied!' : 'Copy'">
+                  </button>
+                </div>
+              </div>
+              <div class="code-snippet-body">
+                <pre class="code-snippet-content"><code x-text="code"></code></pre>
+              </div>
+            </figure>
+
+            <h3>Deploy a Smart Contract</h3>
+            <p>Deploy an ERC20 token contract:</p>
+            <figure class="code-snippet" x-data="codeSnippet(`from ape import accounts, project
+
+def main():
+    # Load deployer account
+    deployer = accounts.load('deployer')
+    
+    # Deploy ERC20 token contract
+    token = project.Token.deploy(
+        'MyToken',
+        'MTK',
+        18,  # decimals
+        1000000 * 10**18,  # initial supply
+        sender=deployer
+    )
+    
+    print(f'Token deployed at: {token.address}')
+    print(f'Total supply: {token.totalSupply()}')`, 'python', 'Python')">
+              <div class="code-snippet-header">
+                <span class="code-snippet-title" x-text="title || language"></span>
+                <div class="code-snippet-actions">
+                  <button 
+                    class="code-snippet-copy-btn"
+                    :class="{ copied: copied }"
+                    @click="copy()"
+                    x-text="copied ? 'Copied!' : 'Copy'">
+                  </button>
+                </div>
+              </div>
+              <div class="code-snippet-body">
+                <pre class="code-snippet-content"><code x-text="code"></code></pre>
+              </div>
+            </figure>
+
+            <h3>Interact with Deployed Contract</h3>
+            <p>Read state and call functions on an existing contract:</p>
+            <figure class="code-snippet" x-data="codeSnippet(`from ape import Contract, accounts
+
+def main():
+    # Connect to existing contract
+    token_address = '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb'
+    token = Contract(token_address)
+    
+    # Load account
+    account = accounts.load('my_account')
+    
+    # Read contract state
+    name = token.name()
+    symbol = token.symbol()
+    balance = token.balanceOf(account)
+    
+    # Call contract function (write)
+    recipient = '0x8ba1f109551bD432803012645Hac136c22C9e00'
+    amount = 1000 * 10**18
+    
+    token.transfer(recipient, amount, sender=account)
+    
+    print(f'{symbol} ({name}): {balance / 10**18}')`, 'python', 'Python')">
+              <div class="code-snippet-header">
+                <span class="code-snippet-title" x-text="title || language"></span>
+                <div class="code-snippet-actions">
+                  <button 
+                    class="code-snippet-copy-btn"
+                    :class="{ copied: copied }"
+                    @click="copy()"
+                    x-text="copied ? 'Copied!' : 'Copy'">
+                  </button>
+                </div>
+              </div>
+              <div class="code-snippet-body">
+                <pre class="code-snippet-content"><code x-text="code"></code></pre>
+              </div>
+            </figure>
             <h3>Next Steps</h3>
             <p>Continue reading the guides to learn more about advanced features.</p>
           </article>
@@ -633,7 +1023,7 @@ app.init();</code></pre>
     </section>
 
     <!-- 11. Profile/Settings -->
-    <section class="wireframe-section">
+    <section id="profile-settings" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">11. Profile/Settings</div>
         <div class="flex gap-xl">
@@ -704,7 +1094,7 @@ app.init();</code></pre>
     </section>
 
     <!-- 13. Product Showcase (Marketing Style) -->
-    <section class="wireframe-section">
+    <section id="product-showcase" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">13. Product Showcase (Marketing Style)</div>
         <section>
@@ -780,7 +1170,7 @@ app.init();</code></pre>
     </section>
 
     <!-- 15. Community Testimonials (Marketing Style) -->
-    <section class="wireframe-section">
+    <section id="testimonials" class="wireframe-section">
       <div class="container">
         <div class="wireframe-label">15. Community Testimonials (Marketing Style)</div>
         <section>
@@ -836,6 +1226,7 @@ app.init();</code></pre>
         </section>
       </div>
     </section>
+
   </main>
 
   <footer>

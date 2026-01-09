@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Silverback - Wild</title>
   <link rel="stylesheet" href="assets/ape-design.css">
+  <script src="assets/additional-tricks.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="assets/mobile-menu.js" defer></script>
 </head>
-<body data-theme="green">
+<body data-theme="cyan">
   <div class="grid-overlay"></div>
   <header>
     <nav>
@@ -29,8 +31,149 @@
     </section>
 	<section class="secondary">
 		<div class="container">
-		
-		<p>Silverback is a great tool</p>
+			<h2>Smart Contract Examples</h2>
+			<p>Simple smart contract code examples you can copy and use with Ape Framework.</p>
+			
+			<article>
+				<h3>Simple ERC20 Token</h3>
+				<p>A basic ERC20 token contract:</p>
+				<figure class="code-snippet" x-data="codeSnippet('// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract SimpleToken {\n    string public name;\n    string public symbol;\n    uint8 public decimals;\n    uint256 public totalSupply;\n    \n    mapping(address => uint256) public balanceOf;\n    mapping(address => mapping(address => uint256)) public allowance;\n    \n    event Transfer(address indexed from, address indexed to, uint256 value);\n    event Approval(address indexed owner, address indexed spender, uint256 value);\n    \n    constructor(\n        string memory _name,\n        string memory _symbol,\n        uint8 _decimals,\n        uint256 _totalSupply\n    ) {\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        totalSupply = _totalSupply;\n        balanceOf[msg.sender] = _totalSupply;\n        emit Transfer(address(0), msg.sender, _totalSupply);\n    }\n    \n    function transfer(address to, uint256 amount) public returns (bool) {\n        require(balanceOf[msg.sender] >= amount, \'Insufficient balance\');\n        balanceOf[msg.sender] -= amount;\n        balanceOf[to] += amount;\n        emit Transfer(msg.sender, to, amount);\n        return true;\n    }\n    \n    function approve(address spender, uint256 amount) public returns (bool) {\n        allowance[msg.sender][spender] = amount;\n        emit Approval(msg.sender, spender, amount);\n        return true;\n    }\n    \n    function transferFrom(address from, address to, uint256 amount) public returns (bool) {\n        require(balanceOf[from] >= amount, \'Insufficient balance\');\n        require(allowance[from][msg.sender] >= amount, \'Insufficient allowance\');\n        balanceOf[from] -= amount;\n        balanceOf[to] += amount;\n        allowance[from][msg.sender] -= amount;\n        emit Transfer(from, to, amount);\n        return true;\n    }\n}', 'solidity', 'Solidity', false, true)">
+					<div class="code-snippet-header">
+						<span class="code-snippet-title" x-text="title || language"></span>
+						<div class="code-snippet-actions">
+							<button 
+								class="code-snippet-select-btn"
+								@click="selectAll()"
+								title="Select all (Ctrl/Cmd+A)">
+								Select
+							</button>
+							<button 
+								class="code-snippet-download-btn"
+								@click="download()"
+								title="Download as file"
+								x-show="showDownload">
+								Download
+							</button>
+							<button 
+								class="code-snippet-copy-btn"
+								:class="{ copied: copied }"
+								@click="copy()"
+								title="Copy to clipboard (Ctrl/Cmd+C)"
+								x-text="copied ? 'Copied!' : 'Copy'">
+							</button>
+						</div>
+					</div>
+					<div class="code-snippet-body">
+						<pre class="code-snippet-content"><code x-text="code"></code></pre>
+					</div>
+				</figure>
+			</article>
+
+			<article>
+				<h3>Simple Counter Contract</h3>
+				<p>A basic counter contract for testing:</p>
+				<figure class="code-snippet" x-data="codeSnippet('// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract Counter {\n    uint256 public count;\n    \n    event CountIncremented(uint256 newCount);\n    event CountDecremented(uint256 newCount);\n    event CountReset();\n    \n    constructor(uint256 _initialCount) {\n        count = _initialCount;\n    }\n    \n    function increment() public {\n        count++;\n        emit CountIncremented(count);\n    }\n    \n    function decrement() public {\n        require(count > 0, \'Count cannot be negative\');\n        count--;\n        emit CountDecremented(count);\n    }\n    \n    function reset() public {\n        count = 0;\n        emit CountReset();\n    }\n    \n    function getCount() public view returns (uint256) {\n        return count;\n    }\n}', 'solidity', 'Solidity', false, true)">
+					<div class="code-snippet-header">
+						<span class="code-snippet-title" x-text="title || language"></span>
+						<div class="code-snippet-actions">
+							<button 
+								class="code-snippet-select-btn"
+								@click="selectAll()"
+								title="Select all (Ctrl/Cmd+A)">
+								Select
+							</button>
+							<button 
+								class="code-snippet-download-btn"
+								@click="download()"
+								title="Download as file"
+								x-show="showDownload">
+								Download
+							</button>
+							<button 
+								class="code-snippet-copy-btn"
+								:class="{ copied: copied }"
+								@click="copy()"
+								title="Copy to clipboard (Ctrl/Cmd+C)"
+								x-text="copied ? 'Copied!' : 'Copy'">
+							</button>
+						</div>
+					</div>
+					<div class="code-snippet-body">
+						<pre class="code-snippet-content"><code x-text="code"></code></pre>
+					</div>
+				</figure>
+			</article>
+
+			<article>
+				<h3>Deploy with Ape</h3>
+				<p>Deploy the token contract using Ape Framework:</p>
+				<figure class="code-snippet" x-data="codeSnippet('from ape import accounts, project\n\ndef main():\n    # Load deployer account\n    deployer = accounts.load(\'deployer\')\n    \n    # Deploy SimpleToken contract\n    token = project.SimpleToken.deploy(\n        \'MyToken\',           # name\n        \'MTK\',               # symbol\n        18,                  # decimals\n        1000000 * 10**18,    # total supply\n        sender=deployer\n    )\n    \n    print(f\'Token deployed at: {token.address}\')\n    print(f\'Name: {token.name()}\')\n    print(f\'Symbol: {token.symbol()}\')\n    print(f\'Total Supply: {token.totalSupply() / 10**18}\')', 'python', 'Python', false, true)">
+					<div class="code-snippet-header">
+						<span class="code-snippet-title" x-text="title || language"></span>
+						<div class="code-snippet-actions">
+							<button 
+								class="code-snippet-select-btn"
+								@click="selectAll()"
+								title="Select all (Ctrl/Cmd+A)">
+								Select
+							</button>
+							<button 
+								class="code-snippet-download-btn"
+								@click="download()"
+								title="Download as file"
+								x-show="showDownload">
+								Download
+							</button>
+							<button 
+								class="code-snippet-copy-btn"
+								:class="{ copied: copied }"
+								@click="copy()"
+								title="Copy to clipboard (Ctrl/Cmd+C)"
+								x-text="copied ? 'Copied!' : 'Copy'">
+							</button>
+						</div>
+					</div>
+					<div class="code-snippet-body">
+						<pre class="code-snippet-content"><code x-text="code"></code></pre>
+					</div>
+				</figure>
+			</article>
+
+			<article>
+				<h3>Interact with Contract</h3>
+				<p>Transfer tokens and check balances:</p>
+				<figure class="code-snippet" x-data="codeSnippet('from ape import Contract, accounts\n\ndef main():\n    # Connect to deployed contract\n    token = Contract(\'0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb\')\n    \n    # Load accounts\n    sender = accounts.load(\'deployer\')\n    recipient = accounts.load(\'user\')\n    \n    # Check initial balance\n    balance = token.balanceOf(sender)\n    print(f\'Sender balance: {balance / 10**18}\')\n    \n    # Transfer tokens\n    amount = 1000 * 10**18\n    token.transfer(recipient, amount, sender=sender)\n    \n    # Check new balances\n    sender_balance = token.balanceOf(sender)\n    recipient_balance = token.balanceOf(recipient)\n    \n    print(f\'Sender balance: {sender_balance / 10**18}\')\n    print(f\'Recipient balance: {recipient_balance / 10**18}\')', 'python', 'Python', false, true)">
+					<div class="code-snippet-header">
+						<span class="code-snippet-title" x-text="title || language"></span>
+						<div class="code-snippet-actions">
+							<button 
+								class="code-snippet-select-btn"
+								@click="selectAll()"
+								title="Select all (Ctrl/Cmd+A)">
+								Select
+							</button>
+							<button 
+								class="code-snippet-download-btn"
+								@click="download()"
+								title="Download as file"
+								x-show="showDownload">
+								Download
+							</button>
+							<button 
+								class="code-snippet-copy-btn"
+								:class="{ copied: copied }"
+								@click="copy()"
+								title="Copy to clipboard (Ctrl/Cmd+C)"
+								x-text="copied ? 'Copied!' : 'Copy'">
+							</button>
+						</div>
+					</div>
+					<div class="code-snippet-body">
+						<pre class="code-snippet-content"><code x-text="code"></code></pre>
+					</div>
+				</figure>
+			</article>
+		</div>
 	</section>
   </main>
 
