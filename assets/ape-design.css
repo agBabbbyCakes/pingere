@@ -2937,6 +2937,39 @@ input[type="button"],
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  position: relative;
+  padding-left: calc(var(--space-md) + 1rem);
+}
+
+/* Copy icon - two overlapping rectangles */
+.code-snippet-copy-btn::before {
+  content: '';
+  position: absolute;
+  left: var(--space-xs);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  background: transparent;
+  opacity: 0.8;
+}
+
+/* Second rectangle for copy effect */
+.code-snippet-copy-btn::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-xs) + 0.25rem);
+  top: calc(50% + 0.25rem);
+  transform: translateY(-50%);
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  background: var(--glass);
+  opacity: 0.6;
+  z-index: -1;
 }
 
 .code-snippet-copy-btn:hover {
@@ -2949,19 +2982,23 @@ input[type="button"],
   border-color: var(--accent);
   color: var(--accent);
   background: var(--glass-accent);
-  animation: copyPulse 0.3s ease;
 }
 
-@keyframes copyPulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* Checkmark icon when copied */
+.code-snippet-copy-btn.copied::before {
+  content: '✓';
+  border: none;
+  background: transparent;
+  width: auto;
+  height: auto;
+  font-size: 0.875rem;
+  line-height: 1;
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.code-snippet-copy-btn.copied::after {
+  display: none;
 }
 
 .code-snippet-download-btn {
@@ -3272,6 +3309,7 @@ input[type="button"],
   border: 1px solid var(--glass-border);
   color: var(--text-2);
   padding: var(--space-xs) var(--space-md);
+  padding-left: calc(var(--space-md) + 1rem);
   border-radius: var(--radius-sm);
   font-size: var(--size-xs);
   cursor: pointer;
@@ -3279,6 +3317,40 @@ input[type="button"],
   font-family: var(--font);
   text-transform: uppercase;
   letter-spacing: var(--letter-wide);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Copy icon for code viewer */
+.code-viewer-copy-btn::before {
+  content: '';
+  position: absolute;
+  left: var(--space-xs);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  background: transparent;
+  opacity: 0.8;
+}
+
+.code-viewer-copy-btn::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-xs) + 0.25rem);
+  top: calc(50% + 0.25rem);
+  transform: translateY(-50%);
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  background: var(--glass);
+  opacity: 0.6;
+  z-index: -1;
 }
 
 .code-viewer-copy-btn:hover {
@@ -3291,6 +3363,23 @@ input[type="button"],
   border-color: var(--accent);
   color: var(--accent);
   background: var(--glass-accent);
+}
+
+/* Checkmark icon when copied */
+.code-viewer-copy-btn.copied::before {
+  content: '✓';
+  border: none;
+  background: transparent;
+  width: auto;
+  height: auto;
+  font-size: 0.875rem;
+  line-height: 1;
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.code-viewer-copy-btn.copied::after {
+  display: none;
 }
 
 .code-viewer-body {
