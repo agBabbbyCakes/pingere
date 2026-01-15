@@ -1318,13 +1318,13 @@ button,
   touch-action: manipulation; /* Optimize touch response */
 }
 
-/* Button fill animation - liquid rise from bottom */
+/* Button fill animation - expand from center outward */
 @keyframes buttonFill {
   from {
-    clip-path: inset(100% 0 0 0);
+    clip-path: circle(0% at 50% 50%);
   }
   to {
-    clip-path: inset(0 0 0 0);
+    clip-path: circle(100% at 50% 50%);
   }
 }
 
@@ -1349,7 +1349,7 @@ button::before,
     rgba(59, 130, 246, 0.15),
     rgba(96, 165, 250, 0.1)
   );
-  clip-path: inset(100% 0 0 0);
+  clip-path: circle(0% at 50% 50%);
   transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
   pointer-events: none;
@@ -1386,7 +1386,7 @@ button:hover,
 
 button:hover::before,
 [role="button"]:hover::before {
-  clip-path: inset(0 0 0 0);
+  clip-path: circle(100% at 50% 50%);
 }
 
 button:hover::after,
