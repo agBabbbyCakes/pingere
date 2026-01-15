@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Grid Overlays - Ape Design System</title>
+  <link rel="stylesheet" href="../../assets/ape-design.css">
+  <script src="../../assets/mobile-menu.js" defer></script>
+</head>
+<body data-theme="cyan">
+  <div class="grid-overlay"></div>
+  <header>
+    <nav>
+      <a href="../../index.html" class="brand">APE DESIGN</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="mobileMenuToggle">☰</button>
+      <div class="links" id="navLinks">
+        <a href="../../index.html#features">Features</a>
+        <a href="../../index.html#themes">Themes</a>
+        <a href="../../index.html#components">Components</a>
+        <a href="../../index.html#utilities">Utilities</a>
+        <a href="../../wireframes.html">Wireframes</a>
+        <a href="../../marketing-website/index.html">Marketing Site</a>
+        <a href="../../docs.html">Documentation</a>
+        <a href="../../variables.html">Variables</a>
+      </div>
+      <div class="theme-switcher">
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="themeButton">
+            <span id="themeButtonText">Professional Blue</span>
+          </button>
+          <div class="theme-dropdown-menu" id="themeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Professional Blue</span>
+                <span class="theme-option-desc">B2B & Enterprise</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Premium Emerald</span>
+                <span class="theme-option-desc">Fintech & Growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Panel -->
+  <div class="mobile-menu-panel" id="mobileMenuPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu-header">
+      <a href="../../index.html" class="brand">APE DESIGN</a>
+      <button class="mobile-menu-close" aria-label="Close menu" id="mobileMenuClose">×</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="links">
+        <a href="../../index.html#features">Features</a>
+        <a href="../../index.html#themes">Themes</a>
+        <a href="../../index.html#components">Components</a>
+        <a href="../../index.html#utilities">Utilities</a>
+        <a href="../../wireframes.html">Wireframes</a>
+        <a href="../../marketing-website/index.html">Marketing Site</a>
+        <a href="../../docs.html">Documentation</a>
+        <a href="../../variables.html">Variables</a>
+      </nav>
+      <div class="theme-switcher">
+        <div class="theme-dropdown">
+          <button class="theme-dropdown-button" id="mobileThemeButton">
+            <span id="mobileThemeButtonText">Professional Blue</span>
+          </button>
+          <div class="theme-dropdown-menu" id="mobileThemeMenu">
+            <div class="theme-option active" data-theme="cyan">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Professional Blue</span>
+                <span class="theme-option-desc">B2B & Enterprise</span>
+              </div>
+            </div>
+            <div class="theme-option" data-theme="green">
+              <div class="theme-option-color"></div>
+              <div class="theme-option-label">
+                <span class="theme-option-name">Premium Emerald</span>
+                <span class="theme-option-desc">Fintech & Growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="grid-overlay"></div>
+      <h1>Grid Overlays</h1>
+      <p class="hero-text">
+        Optional subtle grid overlays with masked radial gradients for atmospheric depth. 
+        Professional and understated visual effects that enhance your design without overwhelming it.
+      </p>
+      <div class="btn-group">
+        <a href="../../index.html" role="button">Back to Home</a>
+        <a href="../../docs.html" role="button" class="outline">View Docs</a>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section>
+      <div class="container">
+        <h2>Overview</h2>
+        <p>Grid overlays provide a subtle, professional backdrop that adds depth and visual interest to your pages. The grid pattern uses masked radial gradients to create a sophisticated, understated effect that works perfectly for enterprise applications.</p>
+
+        <article>
+          <h3>Key Features</h3>
+          <ul>
+            <li>Subtle grid pattern with customizable spacing</li>
+            <li>Masked radial gradients for atmospheric depth</li>
+            <li>Low opacity for professional appearance</li>
+            <li>Easy to enable or disable per section</li>
+            <li>Fully customizable via CSS variables</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Usage Examples -->
+    <section class="secondary">
+      <div class="grid-overlay"></div>
+      <div class="container">
+        <h2>Usage Examples</h2>
+        <p>Grid overlays can be added to any section using the <code>.grid-overlay</code> class.</p>
+
+        <article>
+          <h3>Basic Grid Overlay</h3>
+          <p>Add a grid overlay to any section:</p>
+          <pre><code>&lt;section class="hero"&gt;
+  &lt;div class="grid-overlay"&gt;&lt;/div&gt;
+  &lt;h1&gt;Hero Title&lt;/h1&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+
+        <article>
+          <h3>Secondary Section with Grid</h3>
+          <p>Grid overlays work especially well with secondary sections:</p>
+          <pre><code>&lt;section class="secondary"&gt;
+  &lt;div class="grid-overlay"&gt;&lt;/div&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;Section Title&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- Customization -->
+    <section>
+      <div class="container">
+        <h2>Customization</h2>
+        <p>Customize grid overlays using CSS variables in your theme or custom stylesheet.</p>
+
+        <article>
+          <h3>CSS Variables</h3>
+          <p>Control grid appearance with these variables:</p>
+          <pre><code>:root {
+  --accent-glow: rgba(0, 255, 255, 0.5);
+  /* Grid overlay uses --accent-glow for line color */
+}</code></pre>
+        </article>
+
+        <article>
+          <h3>Grid Spacing</h3>
+          <p>The default grid uses 40px spacing. You can override this in your CSS:</p>
+          <pre><code>.grid-overlay {
+  background:
+    linear-gradient(to right, var(--accent-glow) 1px, transparent 1px) 0 0 / 60px 60px,
+    linear-gradient(to bottom, var(--accent-glow) 1px, transparent 1px) 0 0 / 60px 60px;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="grid">
+      <div>
+        <h3>ApeWorX</h3>
+        <p>Professional design systems for modern web applications.</p>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="../../docs.html">Documentation</a></li>
+          <li><a href="../../index.html">Examples</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; 2025 ApeWorX. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Make themeNames available globally for mobile menu
+    window.themeNames = {
+      'cyan': 'Professional Blue',
+      'green': 'Premium Emerald'
+    };
+    
+    // Theme Switcher Dropdown
+    const themeButton = document.getElementById('themeButton');
+    const themeMenu = document.getElementById('themeMenu');
+    const themeButtonText = document.getElementById('themeButtonText');
+    
+    // Toggle dropdown
+    themeButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themeMenu.classList.toggle('open');
+      themeButton.classList.toggle('open');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!themeButton.contains(e.target) && !themeMenu.contains(e.target)) {
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+      }
+    });
+    
+    // Theme selection
+    document.querySelectorAll('.theme-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const theme = option.getAttribute('data-theme');
+        document.body.setAttribute('data-theme', theme);
+        
+        // Update button text
+        themeButtonText.textContent = themeNames[theme];
+        
+        // Update active state
+        document.querySelectorAll('.theme-option').forEach(opt => {
+          opt.classList.remove('active');
+        });
+        option.classList.add('active');
+        
+        // Close dropdown
+        themeMenu.classList.remove('open');
+        themeButton.classList.remove('open');
+        
+        // Save to localStorage
+        localStorage.setItem('ape-theme', theme);
+      });
+    });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('ape-theme');
+    if (savedTheme) {
+      document.body.setAttribute('data-theme', savedTheme);
+      themeButtonText.textContent = themeNames[savedTheme];
+      document.querySelector(`.theme-option[data-theme="${savedTheme}"]`)?.classList.add('active');
+      document.querySelectorAll('.theme-option').forEach(opt => {
+        if (opt.getAttribute('data-theme') !== savedTheme) {
+          opt.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -158,7 +158,9 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
 
         <article>
           <h3>Dropdown Theme Switcher</h3>
-          <p>Use the included dropdown theme switcher (see index.html for implementation):</p>
+          <p>Use the included dropdown theme switcher. You can write it manually, or use a helper function:</p>
+          
+          <h4>Manual HTML (Full Control)</h4>
           <pre><code>&lt;div class="theme-switcher"&gt;
   &lt;div class="theme-dropdown"&gt;
     &lt;button class="theme-dropdown-button" id="themeButton"&gt;
@@ -169,12 +171,48 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
         &lt;div class="theme-option-color"&gt;&lt;/div&gt;
         &lt;div class="theme-option-label"&gt;
           &lt;span class="theme-option-name"&gt;Professional Blue&lt;/span&gt;
+          &lt;span class="theme-option-desc"&gt;B2B & Enterprise&lt;/span&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;!-- More theme options --&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+
+          <h4>Using a Helper Function (Easier)</h4>
+          <p>Instead of writing all that HTML, define your themes once and generate it:</p>
+          <pre><code>// 1. Define your themes (simple data structure)
+const themes = [
+  { id: 'cyan', name: 'Professional Blue', desc: 'B2B & Enterprise' },
+  { id: 'green', name: 'Premium Emerald', desc: 'Fintech & Growth' }
+];
+
+// 2. Helper function (add to your JS file)
+function createThemeSwitcher(themes, buttonId = 'themeButton', menuId = 'themeMenu', textId = 'themeButtonText') {
+  const current = localStorage.getItem('ape-theme') || themes[0].id;
+  const currentTheme = themes.find(t => t.id === current) || themes[0];
+  
+  return `&lt;div class="theme-switcher"&gt;
+  &lt;div class="theme-dropdown"&gt;
+    &lt;button class="theme-dropdown-button" id="${buttonId}"&gt;
+      &lt;span id="${textId}"&gt;${currentTheme.name}&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="theme-dropdown-menu" id="${menuId}"&gt;
+      ${themes.map(t => `&lt;div class="theme-option ${t.id === current ? 'active' : ''}" data-theme="${t.id}"&gt;
+        &lt;div class="theme-option-color"&gt;&lt;/div&gt;
+        &lt;div class="theme-option-label"&gt;
+          &lt;span class="theme-option-name"&gt;${t.name}&lt;/span&gt;
+          ${t.desc ? `&lt;span class="theme-option-desc"&gt;${t.desc}&lt;/span&gt;` : ''}
+        &lt;/div&gt;
+      &lt;/div&gt;`).join('')}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;`;
+}
+
+// 3. Use it (just one line!)
+document.querySelector('.nav-theme-container').innerHTML = createThemeSwitcher(themes);</code></pre>
+          <p class="text-sm muted">This approach makes it easy to add/remove themes - just update the array!</p>
         </article>
 
         <article>
@@ -280,11 +318,11 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
           <pre><code>&lt;article&gt;
   &lt;h3&gt;Card Title&lt;/h3&gt;
   &lt;p&gt;Card content goes here.&lt;/p&gt;
-  &lt;footer&gt;
+  &lt;div class="btn-group"&gt;
     &lt;button&gt;Action&lt;/button&gt;
-  &lt;/footer&gt;
+  &lt;/div&gt;
 &lt;/article&gt;</code></pre>
-          <p>Cards automatically have glass effects, hover animations, and footer positioning.</p>
+          <p>Cards automatically have glass effects and hover animations. Use <code>.btn-group</code> for buttons to get proper vertical spacing.</p>
         </article>
 
         <article>
@@ -335,6 +373,30 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
     &lt;h2&gt;Secondary Section&lt;/h2&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
+        </article>
+
+        <article>
+          <h3>Footer & Copyright</h3>
+          <p>Use <code>&lt;footer&gt;</code> with the <code>.legal</code> class for copyright notices:</p>
+          <pre><code>&lt;footer&gt;
+  &lt;div class="grid"&gt;
+    &lt;div&gt;
+      &lt;h3&gt;Company&lt;/h3&gt;
+      &lt;p&gt;Description&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="legal"&gt;
+    &lt;p&gt;&amp;copy; 2025 Company Name. All rights reserved.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+          <p>The <code>.legal</code> class automatically styles copyright notices with:</p>
+          <ul>
+            <li>Centered text alignment</li>
+            <li>Monospace font family</li>
+            <li>Muted text color</li>
+            <li>Border-top separator</li>
+            <li>Small font size</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -387,6 +449,12 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
             <h3>Background</h3>
             <pre><code>.bg-secondary
 .bg-card</code></pre>
+          </article>
+
+          <article>
+            <h3>Images</h3>
+            <pre><code>.img-white</code></pre>
+            <p class="text-sm muted">Converts image to white using CSS filters. Useful for logos on dark backgrounds.</p>
           </article>
         </div>
       </div>
@@ -518,7 +586,7 @@ const currentTheme = document.body.getAttribute('data-theme');</code></pre>
       </div>
     </div>
     <div class="legal">
-      <p>&copy; 2024 ApeWorX. All rights reserved.</p>
+      <p>&copy; 2025 ApeWorX. All rights reserved.</p>
     </div>
   </footer>
 

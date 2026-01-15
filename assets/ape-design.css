@@ -122,7 +122,7 @@
    
    4. COMPONENT VARIATIONS:
       - Buttons: Add .outline, .sm, .lg, .auto, .full
-      - Cards: Use <article> with optional <small> and <footer>
+      - Cards: Use <article> with optional <small> and <div class="btn-group"> for buttons
       - Sections: Add .secondary or .hero classes
       - Grids: Add .compact for smaller cards
    
@@ -603,37 +603,130 @@ nav .links {
   width: 85%;
   max-width: 320px;
   height: 100vh;
-  background: var(--bg);
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
   border-left: var(--border) var(--glass-border);
-  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.5);
+  box-shadow: -12px 0 48px rgba(0, 0, 0, 0.7), 
+              inset 1px 0 0 rgba(255, 255, 255, 0.08),
+              0 0 0 1px rgba(255, 255, 255, 0.02);
   z-index: 9999;
   transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
-  visibility: visible;
+  visibility: hidden;
   pointer-events: none;
+  position: relative;
+}
+
+.mobile-menu-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top right, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .mobile-menu-panel.active {
   transform: translateX(0);
   pointer-events: auto;
+  visibility: visible;
+}
+
+.mobile-menu-panel > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Mobile menu header */
 .mobile-menu-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--space-lg);
+  justify-content: center;
+  padding: var(--space-xl) var(--space-lg);
   border-bottom: var(--border) var(--glass-border);
-  background: var(--glass);
+  background: var(--bg-2);
+  backdrop-filter: var(--blur-strong);
+  -webkit-backdrop-filter: var(--blur-strong);
+  flex-shrink: 0;
+  position: relative;
+  min-height: 80px;
+}
+
+.mobile-menu-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--glass-accent) 0%, rgba(255, 255, 255, 0.01) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mobile-menu-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-accent), transparent);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.mobile-menu-header > * {
+  position: relative;
+  z-index: 2;
 }
 
 .mobile-menu-header .brand {
-  font-size: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.mobile-menu-header .brand:hover {
+  transform: scale(1.05);
+}
+
+.mobile-menu-header .brand::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--radius);
+  z-index: -1;
+}
+
+.mobile-menu-header .brand:hover::before {
+  opacity: 0.3;
+}
+
+.mobile-menu-header .brand img {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  filter: brightness(0) saturate(0) invert(1);
+  -webkit-filter: brightness(0) saturate(0) invert(1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.1));
 }
 
 .mobile-menu-close {
@@ -642,57 +735,170 @@ nav .links {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--glass);
-  border: var(--border) var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  border: var(--border) rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
-  color: var(--text);
+  color: var(--text-2);
   cursor: pointer;
-  font-size: var(--size-xl);
-  transition: all 0.12s ease;
+  font-size: var(--size-2xl);
+  line-height: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: absolute;
+  top: var(--space-xl);
+  right: var(--space-lg);
+  z-index: 10;
+}
+
+.mobile-menu-close::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.mobile-menu-close:hover::before,
+.mobile-menu-close:focus::before {
+  opacity: 0.4;
 }
 
 .mobile-menu-close:hover,
 .mobile-menu-close:focus {
-  background: var(--glass-hover);
-  border-color: var(--glass-accent);
+  background: var(--glass-accent);
+  border-color: var(--accent);
+  color: var(--accent);
   outline: none;
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 /* Mobile menu content */
 .mobile-menu-content {
   flex: 1;
-  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: var(--space-lg) var(--space-lg) var(--space-xl);
+  min-height: 0;
+  overflow-y: auto;
+  position: relative;
+}
+
+.mobile-menu-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+  opacity: 0.3;
 }
 
 .mobile-menu-content .links {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   width: 100%;
+  align-items: stretch;
+  margin-top: var(--space-md);
 }
 
 .mobile-menu-content .links a {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: var(--space-md) var(--space-lg);
   color: var(--text-2);
   text-decoration: none;
   border-radius: var(--radius);
-  transition: all 0.12s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: var(--size);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.01em;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+}
+
+.mobile-menu-content .links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.mobile-menu-content .links a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, var(--glass-accent) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.mobile-menu-content .links a:hover::before,
+.mobile-menu-content .links a:focus::before {
+  transform: scaleY(1);
+}
+
+.mobile-menu-content .links a:hover::after,
+.mobile-menu-content .links a:focus::after {
+  opacity: 0.6;
 }
 
 .mobile-menu-content .links a:hover,
 .mobile-menu-content .links a:focus {
-  background: var(--glass-hover);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
   color: var(--accent);
   outline: none;
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 20px var(--accent-glow);
 }
 
 .mobile-menu-content .links a.accent {
   color: var(--accent);
+  font-weight: var(--weight-semibold);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-content .links a.accent::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.mobile-menu-content .links a.accent:hover,
+.mobile-menu-content .links a.accent:focus {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 24px var(--accent-glow);
 }
 
 /* Theme switcher in mobile menu */
@@ -1004,14 +1210,16 @@ section h2 + p {
      <small>Metadata</small>        // Optional: Date, category, etc.
      <h3>Title</h3>
      <p>Content...</p>
-     <footer>Footer content</footer>  // Optional: Actions, links
+     <div class="btn-group">       // For buttons: Use btn-group instead of footer
+       <button>Action</button>
+     </div>
    </article>
    
    STYLING:
    - Automatic glass background and border
    - Hover: Border accent color, background brightens
    - Animation: Fade-in on load with stagger delay
-   - Footer: Auto-margin-top, border-top separator
+   - Buttons: Use .btn-group for vertical button groups with spacing
    
    EXAMPLES:
    <article>
@@ -1089,6 +1297,7 @@ article small {
   letter-spacing: var(--letter-normal);
 }
 
+/* Article footer - Legacy support (deprecated: use .btn-group for buttons) */
 article footer {
   margin-top: auto;
   padding-top: var(--space-lg);
@@ -1232,6 +1441,12 @@ button.full,
 .btn-group button,
 .btn-group [role="button"] {
   width: 100%;
+  margin-bottom: var(--space-md);
+}
+
+.btn-group button:last-child,
+.btn-group [role="button"]:last-child {
+  margin-bottom: 0;
 }
 
 /* Desktop: Horizontal button groups (768px+) */
@@ -1250,12 +1465,46 @@ button.full,
     justify-content: center;
     flex-wrap: wrap;
     width: auto;
+    gap: var(--space-lg) !important;
   }
 
   .btn-group button,
-  .btn-group [role="button"] {
+  .btn-group [role="button"],
+  .btn-group a[role="button"] {
     width: auto;
     flex: 0 1 auto;
+    margin-bottom: 0 !important;
+    margin-right: var(--space-lg) !important;
+  }
+
+  .btn-group button:last-child,
+  .btn-group [role="button"]:last-child,
+  .btn-group a[role="button"]:last-child {
+    margin-right: 0 !important;
+  }
+
+  /* Extra spacing for button groups inside grid articles on desktop */
+  .grid article .btn-group,
+  article .btn-group {
+    gap: var(--space-lg) !important;
+  }
+
+  .grid article .btn-group button,
+  .grid article .btn-group [role="button"],
+  .grid article .btn-group a[role="button"],
+  article .btn-group button,
+  article .btn-group [role="button"],
+  article .btn-group a[role="button"] {
+    margin-right: var(--space-lg) !important;
+  }
+
+  .grid article .btn-group button:last-child,
+  .grid article .btn-group [role="button"]:last-child,
+  .grid article .btn-group a[role="button"]:last-child,
+  article .btn-group button:last-child,
+  article .btn-group [role="button"]:last-child,
+  article .btn-group a[role="button"]:last-child {
+    margin-right: 0 !important;
   }
 
   /* Equal width buttons in group (optional utility) */
@@ -1601,6 +1850,19 @@ body > footer a:hover {
   font-size: var(--size-xs);
   color: var(--text-muted);
   text-align: center;
+  font-family: var(--font);
+}
+
+.legal p {
+  text-align: center;
+  max-width: none;
+  margin: 0 auto;
+}
+
+/* Image Utilities */
+.img-white {
+  filter: brightness(0) saturate(0) invert(1);
+  -webkit-filter: brightness(0) saturate(0) invert(1);
 }
 
 /* ========================================
@@ -1905,10 +2167,7 @@ input[type="radio"] {
 
 /* Layout for wireframes page with sidebar */
 main {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-2xl);
-  align-items: start;
+  display: block;
 }
 
 /* List Utilities */

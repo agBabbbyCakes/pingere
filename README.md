@@ -65,9 +65,9 @@ The design system styles semantic HTML5 elements automatically:
         <article>
           <h3>Feature One</h3>
           <p>Description of your feature</p>
-          <footer>
+          <div class="btn-group">
             <button class="outline">Learn More</button>
-          </footer>
+          </div>
         </article>
       </div>
     </div>
@@ -166,9 +166,9 @@ The grid overlay features:
       <article>
         <h3>Feature Title</h3>
         <p>Feature description goes here.</p>
-        <footer>
+        <div class="btn-group">
           <button class="outline">Learn More</button>
-        </footer>
+        </div>
       </article>
       <!-- More feature cards -->
     </div>
@@ -192,6 +192,29 @@ The grid overlay features:
   </div>
 </section>
 ```
+
+### Footer with Copyright
+
+```html
+<footer>
+  <div class="grid">
+    <div>
+      <h3>Company</h3>
+      <p>Description</p>
+    </div>
+  </div>
+  <div class="legal">
+    <p>&copy; 2025 Company Name. All rights reserved.</p>
+  </div>
+</footer>
+```
+
+The `.legal` class automatically styles copyright notices with:
+- Centered text alignment
+- Monospace font family
+- Muted text color
+- Border-top separator
+- Small font size
 
 ### Dashboard Layout
 
@@ -230,10 +253,10 @@ The grid overlay features:
       <article>
         <h3>Product Name</h3>
         <p>Product description and key features.</p>
-        <footer>
+        <div class="btn-group">
           <a href="/product" role="button">Get Started</a>
           <a href="/docs" role="button" class="outline">Read Docs</a>
-        </footer>
+        </div>
       </article>
     </div>
   </div>
@@ -300,6 +323,9 @@ The grid overlay features:
 - **`.sticky`** - Position sticky
 - **`.relative`** - Position relative
 
+#### Images
+- **`.img-white`** - Converts image to white using CSS filters (useful for logos on dark backgrounds)
+
 ## Semantic HTML Elements
 
 The design system automatically styles these semantic HTML5 elements:
@@ -307,6 +333,7 @@ The design system automatically styles these semantic HTML5 elements:
 - **`<header>`** - Sticky header with glass background and blur
 - **`<main>`** - Main content area with padding and max-width
 - **`<footer>`** - Footer with border-top and grid layout
+- **`.legal`** - Copyright notice styling (centered, monospace font)
 - **`<nav>`** - Navigation with flex layout
 - **`<article>`** - Glass card with hover effects (color only, no movement)
 - **`<section>`** - Section container
