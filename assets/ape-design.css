@@ -166,8 +166,8 @@
    25. ANIMATIONS - Animation utilities (lines 2915-2943)
 */
 
-/* Import Distinctive Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap');
+/* Import Google Font - Only JetBrains Mono is used */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 /* ========================================
    ROOT VARIABLES - Fully Customizable
@@ -417,6 +417,22 @@
   box-sizing: border-box;
 }
 
+/* Subtle background gradient animation - slow, continuous movement */
+@keyframes gradientMove {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, center center;
+  }
+  25% {
+    background-position: 2% 1%, 98% 99%, center center;
+  }
+  50% {
+    background-position: 1% 2%, 99% 98%, center center;
+  }
+  75% {
+    background-position: 1.5% 0.5%, 98.5% 99.5%, center center;
+  }
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -435,7 +451,9 @@ body {
     radial-gradient(circle at 100% 100%, var(--accent-glow) 0%, transparent 15%),
     radial-gradient(ellipse at center, var(--bg-2) 0%, var(--bg) 100%);
   background-attachment: fixed;
-  background-size: 100% 100%;
+  background-size: 120% 120%, 120% 120%, 100% 100%;
+  background-position: 0% 0%, 100% 100%, center center;
+  animation: gradientMove 20s ease-in-out infinite;
 }
 
 /* Subtle grid overlay, masked to fade towards edges */
@@ -951,76 +969,7 @@ nav .links {
   color: #10b981;  /* Green theme accent color */
 }
 
-.theme-color-emerald {
-  color: #10b981;  /* Emerald theme accent color (alias) */
-}
-
-/* Margin Utilities */
-.m-0 { margin: 0; }
-.mt-sm { margin-top: 0.5rem; }
-
-/* Variable Demonstration Utilities - For documentation pages */
-.var-bg-primary { background: var(--bg-primary); border: 1px solid var(--glass-border); }
-.var-bg-secondary { background: var(--bg-secondary); border: 1px solid var(--glass-border); }
-.var-bg-tertiary { background: var(--bg-tertiary); border: 1px solid var(--glass-border); }
-
-.var-text-primary { color: var(--text-primary); margin: 0; }
-.var-text-secondary { color: var(--text-secondary); margin: 0; }
-.var-text-muted { color: var(--text-muted); margin: 0; }
-.var-text-dim { color: var(--text-dim); margin: 0; }
-.var-text-accent-primary { color: var(--accent-primary); margin: 0; }
-.var-text-accent-secondary { color: var(--accent-secondary); margin: 0; }
-.var-text-accent-tertiary { color: var(--accent-tertiary); margin: 0; }
-
-.var-glow { box-shadow: 0 0 20px var(--accent-glow); }
-.var-glass-bg { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); }
-.var-glass-bg-hover { background: var(--glass-bg-hover); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); }
-.var-glass-border { border: 1px solid var(--glass-border); }
-.var-glass-border-accent { background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent); }
-.var-glass-webkit { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
-.var-glass-webkit-strong { background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur-strong); -webkit-backdrop-filter: var(--glass-blur-strong); }
-.var-border-width { border: var(--border-width) solid var(--glass-border); }
-.var-glow-accent { background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent); }
-.var-glow-accent-strong { background: var(--glass-bg); border: 1px solid var(--glass-border-accent); box-shadow: var(--glow-accent-strong); }
-.var-glow-inner { background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--glow-inner); }
-
-.var-font-family { font-family: var(--font-family); }
-.var-font-family-body { font-family: var(--font-family-body); }
-.var-font-size-xs { font-size: var(--font-size-xs); margin: 0; }
-.var-font-size-sm { font-size: var(--font-size-sm); margin: 0; }
-.var-font-size-base { font-size: var(--font-size-base); margin: 0; }
-.var-font-size-lg { font-size: var(--font-size-lg); margin: 0; }
-.var-font-size-xl { font-size: var(--font-size-xl); margin: 0; }
-.var-font-size-2xl { font-size: var(--font-size-2xl); margin: 0; }
-.var-font-size-3xl { font-size: var(--font-size-3xl); margin: 0; }
-.var-font-size-4xl { font-size: var(--font-size-4xl); margin: 0; }
-.var-font-size-5xl { font-size: var(--font-size-5xl); margin: 0; }
-
-.var-spacing-xs { padding: var(--spacing-xs); }
-.var-spacing-sm { padding: var(--spacing-sm); }
-.var-spacing-md { padding: var(--spacing-md); }
-.var-spacing-lg { padding: var(--spacing-lg); }
-.var-spacing-xl { padding: var(--spacing-xl); }
-.var-spacing-2xl { padding: var(--spacing-2xl); }
-
-.var-container-width { max-width: var(--container-width); margin: 0 auto; padding: var(--spacing-md); }
-
-.var-transition-fast { transition: all var(--transition-fast); }
-.var-transition-base { transition: all var(--transition-base); }
-.var-transition-slow { transition: all var(--transition-slow); }
-
-.var-shadow-sm { background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-sm); }
-.var-shadow-md { background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-md); }
-.var-shadow-lg { background: var(--glass-bg); border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg); }
-
-.var-border-radius { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius); }
-.var-border-radius-sm { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); }
-.var-border-radius-lg { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg); }
-
-/* Position utilities */
-.var-relative { position: relative; overflow: hidden; }
-.var-absolute-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--crt-scanline); pointer-events: none; opacity: 0.3; }
-.var-relative-z { position: relative; z-index: 1; }
+/* Note: .theme-color-emerald removed (duplicate of .theme-color-green) */
 
 /* Hide mobile menu on desktop */
 @media (min-width: 768px) {
@@ -1405,10 +1354,6 @@ button:hover::after,
 button:active,
 [role="button"]:active {
   opacity: 0.8;
-}
-
-button:active,
-[role="button"]:active {
   transform: translateY(0);
 }
 
@@ -1664,10 +1609,23 @@ button.inline,
    </section>
 */
 
+/* Secondary section gradient animation - subtle movement */
+@keyframes secondaryGradientMove {
+  0%, 100% {
+    background-position: center center, 50% 50%;
+  }
+  50% {
+    background-position: center center, 52% 48%;
+  }
+}
+
 section.secondary {
-  background: 
+  background:
     radial-gradient(ellipse at center, var(--glass-hover) 0%, var(--glass) 100%),
     radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 30%);
+  background-size: 100% 100%, 120% 120%;
+  background-position: center center, 50% 50%;
+  animation: secondaryGradientMove 30s ease-in-out infinite;
   margin: 0 calc(var(--padding) * -1);
   padding: var(--padding);
   position: relative;
@@ -1723,13 +1681,29 @@ section.secondary .container {
    HERO SECTION
    ======================================== */
 
+/* Hero gradient animation - subtle movement */
+@keyframes heroGradientMove {
+  0%, 100% {
+    background-position: 20% 30%, 80% 70%, center center;
+  }
+  33% {
+    background-position: 22% 32%, 78% 68%, center center;
+  }
+  66% {
+    background-position: 18% 28%, 82% 72%, center center;
+  }
+}
+
 .hero {
   padding: var(--space-5xl) 0 var(--space-4xl);
   text-align: center;
-  background: 
+  background:
     radial-gradient(circle at 20% 30%, var(--accent-glow) 0%, transparent 25%),
     radial-gradient(circle at 80% 70%, var(--accent-glow) 0%, transparent 25%),
     radial-gradient(ellipse at center, var(--bg-2) 0%, var(--bg) 100%);
+  background-size: 150% 150%, 150% 150%, 100% 100%;
+  background-position: 20% 30%, 80% 70%, center center;
+  animation: heroGradientMove 25s ease-in-out infinite;
   position: relative;
   overflow: hidden;
 }
@@ -1921,25 +1895,25 @@ body > footer a:hover {
 .inline { display: inline; }
 .hidden { display: none; }
 
-/* Flexbox Utilities */
+/* Flexbox Utilities - Short semantic names */
 .flex-col { flex-direction: column; }
 .flex-row { flex-direction: row; }
-.center { align-items: center; }
-.start { align-items: flex-start; }
-.end { align-items: flex-end; }
+.center, .items-center { align-items: center; }  /* .center is shorter, .items-center for clarity */
+.start, .items-start { align-items: flex-start; }
+.end, .items-end { align-items: flex-end; }
 .justify-center { justify-content: center; }
-.between { justify-content: space-between; }
+.between, .justify-between { justify-content: space-between; }  /* .between is shorter */
 .justify-start { justify-content: flex-start; }
 .justify-end { justify-content: flex-end; }
 .flex-wrap { flex-wrap: wrap; }
 .flex-1 { flex: 1; }
 
-/* Text Utilities */
+/* Text Utilities - Short semantic names */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
-.accent { color: var(--accent); }
-.muted { color: var(--text-muted); }
+.accent, .text-accent { color: var(--accent); }  /* .accent is shorter */
+.muted, .text-muted { color: var(--text-muted); }  /* .muted is shorter */
 .text { color: var(--text); }
 .text-xs { font-size: var(--size-xs); }
 .text-sm { font-size: var(--size-sm); }
