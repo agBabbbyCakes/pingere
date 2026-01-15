@@ -1346,8 +1346,8 @@ button::before,
   border-radius: var(--radius);
   background: linear-gradient(
     135deg,
-    rgba(0, 255, 255, 0.15),
-    rgba(0, 255, 136, 0.1)
+    rgba(59, 130, 246, 0.15),
+    rgba(96, 165, 250, 0.1)
   );
   clip-path: inset(100% 0 0 0);
   transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1418,8 +1418,8 @@ button.outline::before,
 [role="button"].outline::before {
   background: linear-gradient(
     135deg,
-    rgba(0, 255, 255, 0.08),
-    rgba(0, 255, 136, 0.05)
+    rgba(59, 130, 246, 0.08),
+    rgba(96, 165, 250, 0.05)
   );
 }
 
