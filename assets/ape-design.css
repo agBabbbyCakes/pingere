@@ -1318,25 +1318,63 @@ button,
   touch-action: manipulation; /* Optimize touch response */
 }
 
-button::before,
-[role="button"]::before {
-  display: none;
+/* Button fill animation - liquid rise from bottom */
+@keyframes buttonFill {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
-button::after,
-[role="button"]::after {
+/* Button shimmer animation - subtle sweep */
+@keyframes buttonShimmer {
+  0% {
+    transform: translateX(-100%) translateY(-50%);
+  }
+  100% {
+    transform: translateX(200%) translateY(-50%);
+  }
+}
+
+button::before,
+[role="button"]::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: var(--radius);
-  padding: 2px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.12s ease;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.15),
+    rgba(0, 255, 136, 0.1)
+  );
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
+  pointer-events: none;
+}
+
+/* Shimmer effect overlay */
+button::after,
+[role="button"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: translateX(-100%) translateY(-50%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: var(--radius);
 }
 
 button:hover,
@@ -1346,9 +1384,21 @@ button:hover,
   color: var(--accent);
 }
 
+button:hover::before,
+[role="button"]:hover::before {
+  clip-path: inset(0 0 0 0);
+}
+
 button:hover::after,
 [role="button"]:hover::after {
-  opacity: 1;
+  transform: translateX(200%) translateY(-50%);
+}
+
+/* Ensure text stays above animations */
+button > *,
+[role="button"] > * {
+  position: relative;
+  z-index: 2;
 }
 
 button:active,
@@ -1361,6 +1411,16 @@ button.outline,
 [role="button"].outline {
   background: transparent;
   border-color: var(--glass-border);
+}
+
+/* Outline buttons get a more subtle fill */
+button.outline::before,
+[role="button"].outline::before {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.08),
+    rgba(0, 255, 136, 0.05)
+  );
 }
 
 /* Button variants */
