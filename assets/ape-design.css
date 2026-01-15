@@ -2167,9 +2167,8 @@ input[type="radio"] {
 /* Wireframe Navigation Sidebar */
 .wireframe-nav {
   position: sticky;
-  top: 100px;
+  top: calc(var(--space-xl) + 60px);
   align-self: start;
-  margin-bottom: var(--space-2xl);
   z-index: 5;
 }
 
@@ -2202,6 +2201,16 @@ input[type="radio"] {
 /* Layout for wireframes page with sidebar */
 main {
   display: block;
+}
+
+.wireframes-main {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 var(--padding);
 }
 
 /* List Utilities */
